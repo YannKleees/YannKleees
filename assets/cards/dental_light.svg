@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="440" height="236" viewBox="0 0 440 236" role="img" aria-labelledby="title">
+<title id="title">Dental photos. Object detection that scores orthodontic treatment from photos, served through a web app.</title>
+<rect x="1" y="1" width="438" height="234" rx="14" fill="#f6f8fa" stroke="#d1d9e0" stroke-width="1.5"/>
+<text x="26.0" y="40.0" font-family='system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif' font-size="12" font-weight="600" fill="#d9411e" text-anchor="start" letter-spacing="1.2">COMPUTER VISION · INTERNSHIP</text>
+<text x="414.0" y="40.0" font-family='system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif' font-size="12" font-weight="600" fill="#818b98" text-anchor="end" letter-spacing="1.2">PRIVATE</text>
+<text x="26.0" y="74.0" font-family='system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif' font-size="25" font-weight="650" fill="#1f2328" text-anchor="start" letter-spacing="-0.4">Dental photos</text>
+<text x="26.0" y="104.0" font-family='system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif' font-size="15" font-weight="400" fill="#59636e" text-anchor="start">Object detection that scores orthodontic treatment from</text>
+<text x="26.0" y="126.0" font-family='system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif' font-size="15" font-weight="400" fill="#59636e" text-anchor="start">photos, served through a web app.</text>
+<rect x="26.0" y="184" width="67.8" height="26" rx="13" fill="#ffffff" stroke="#d1d9e0"/>
+<text x="36.0" y="201.5" font-family='system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif' font-size="13" font-weight="400" fill="#1f2328" text-anchor="start">PyTorch</text>
+<rect x="101.8" y="184" width="54.3" height="26" rx="13" fill="#ffffff" stroke="#d1d9e0"/>
+<text x="111.8" y="201.5" font-family='system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif' font-size="13" font-weight="400" fill="#1f2328" text-anchor="start">YOLO</text>
+<rect x="164.1" y="184" width="62.6" height="26" rx="13" fill="#ffffff" stroke="#d1d9e0"/>
+<text x="174.1" y="201.5" font-family='system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif' font-size="13" font-weight="400" fill="#1f2328" text-anchor="start">FastAPI</text>
+<rect x="234.8" y="184" width="53.3" height="26" rx="13" fill="#ffffff" stroke="#d1d9e0"/>
+<text x="244.8" y="201.5" font-family='system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif' font-size="13" font-weight="400" fill="#1f2328" text-anchor="start">React</text>
+</svg>

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="440" height="236" viewBox="0 0 440 236" role="img" aria-labelledby="title">
+<title id="title">datapluck. Click a table or chart on any web page and copy its data as CSV or a pandas snippet. Canvas charts are digitized from pixels.</title>
+<rect x="1" y="1" width="438" height="234" rx="14" fill="#151b23" stroke="#3d444d" stroke-width="1.5"/>
+<text x="26.0" y="40.0" font-family='system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif' font-size="12" font-weight="600" fill="#f25a2c" text-anchor="start" letter-spacing="1.2">BROWSER EXTENSION · IN PROGRESS</text>
+<text x="414.0" y="40.0" font-family='system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif' font-size="12" font-weight="600" fill="#768390" text-anchor="end" letter-spacing="1.2">PRIVATE</text>
+<text x="26.0" y="74.0" font-family='system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif' font-size="25" font-weight="650" fill="#e6edf3" text-anchor="start" letter-spacing="-0.4">datapluck</text>
+<text x="26.0" y="104.0" font-family='system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif' font-size="15" font-weight="400" fill="#9198a1" text-anchor="start">Click a table or chart on any web page and copy its data</text>
+<text x="26.0" y="126.0" font-family='system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif' font-size="15" font-weight="400" fill="#9198a1" text-anchor="start">as CSV or a pandas snippet. Canvas charts are digitized</text>
+<text x="26.0" y="148.0" font-family='system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif' font-size="15" font-weight="400" fill="#9198a1" text-anchor="start">from pixels.</text>
+<rect x="26.0" y="184" width="83.4" height="26" rx="13" fill="#0d1117" stroke="#3d444d"/>
+<text x="36.0" y="201.5" font-family='system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif' font-size="13" font-weight="400" fill="#e6edf3" text-anchor="start">TypeScript</text>
+<rect x="117.4" y="184" width="86.6" height="26" rx="13" fill="#0d1117" stroke="#3d444d"/>
+<text x="127.4" y="201.5" font-family='system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif' font-size="13" font-weight="400" fill="#e6edf3" text-anchor="start">tesseract.js</text>
+<rect x="212.0" y="184" width="81.4" height="26" rx="13" fill="#0d1117" stroke="#3d444d"/>
+<text x="222.0" y="201.5" font-family='system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif' font-size="13" font-weight="400" fill="#e6edf3" text-anchor="start">Playwright</text>
+</svg>

@@ -3,14 +3,32 @@
   <img src="assets/header_light.svg" width="100%" alt="Yann Klees. Data scientist. MSc Applied Data Science, Utrecht University. Based in Luxembourg.">
 </picture>
 
-**Thesis**: detection and redaction of personal data in documents, tested against a re-identification attacker.\
-**tagging**: PII detection for English, French, German and Luxembourgish. Recall 0.91 on hard Luxembourgish names.\
-**[hyperreimpute](https://github.com/YannKleees/hyperreimpute)**: reproduction of HyperImpute (ICML 2022). A tuned CatBoost had 6 to 31% lower RMSE.\
-**Job recommender**: modular pipeline with two-tower and item-to-item retrieval. I built most of the engine.\
-**Dental photos**: internship. Object detection to score orthodontic treatment, with a web app.\
-**datapluck**: browser extension that extracts tables and digitizes charts from web pages. In progress.\
-**[record](https://github.com/YannKleees/record)**: Windows app that records what your PC plays into tagged audio tracks.
+### Projects
 
-Python · PyTorch · scikit-learn · transformers · pandas · Rust · TypeScript · FastAPI · React
+<p>
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/cards/thesis_dark.svg"><img src="assets/cards/thesis_light.svg" width="98.5%" alt="thesis project card"></picture>
+</p>
 
-Unlinked projects are private. Code on request: [LinkedIn](https://www.linkedin.com/in/yann-klees-a0b8a6334) · [yannklees@gmail.com](mailto:yannklees@gmail.com)
+<p>
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/cards/tagging_dark.svg"><img src="assets/cards/tagging_light.svg" width="49%" alt="tagging project card"></picture>
+<a href="https://github.com/YannKleees/hyperreimpute"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/cards/hyperreimpute_dark.svg"><img src="assets/cards/hyperreimpute_light.svg" width="49%" alt="hyperreimpute project card"></picture></a>
+</p>
+
+<p>
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/cards/recommender_dark.svg"><img src="assets/cards/recommender_light.svg" width="49%" alt="recommender project card"></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/cards/dental_dark.svg"><img src="assets/cards/dental_light.svg" width="49%" alt="dental project card"></picture>
+</p>
+
+<p>
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/cards/datapluck_dark.svg"><img src="assets/cards/datapluck_light.svg" width="49%" alt="datapluck project card"></picture>
+<a href="https://github.com/YannKleees/record"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/cards/record_dark.svg"><img src="assets/cards/record_light.svg" width="49%" alt="record project card"></picture></a>
+</p>
+
+### Stack
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/stack_dark.svg">
+  <img src="assets/stack_light.svg" width="100%" alt="Tools I use most: PyTorch, scikit-learn, transformers, OpenCV, Python, pandas, NumPy, Jupyter, R, Rust, TypeScript, FastAPI, React, Git">
+</picture>
+
+Private projects: code on request. [LinkedIn](https://www.linkedin.com/in/yann-klees-a0b8a6334) · [yannklees@gmail.com](mailto:yannklees@gmail.com)

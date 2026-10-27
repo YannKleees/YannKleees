@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="184" viewBox="0 0 900 184" role="img" aria-labelledby="title">
+<title id="title">Personal data redaction. Detects and redacts personal data in documents, then tests whether an attacker can still re-identify the people in them.</title>
+<rect x="1" y="1" width="898" height="182" rx="14" fill="#151b23" stroke="#3d444d" stroke-width="1.5"/>
+<text x="28.0" y="40.0" font-family='system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif' font-size="12" font-weight="600" fill="#f25a2c" text-anchor="start" letter-spacing="1.2">THESIS</text>
+<text x="872.0" y="40.0" font-family='system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif' font-size="12" font-weight="600" fill="#768390" text-anchor="end" letter-spacing="1.2">PRIVATE</text>
+<text x="28.0" y="74.0" font-family='system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif' font-size="25" font-weight="650" fill="#e6edf3" text-anchor="start" letter-spacing="-0.4">Personal data redaction</text>
+<text x="28.0" y="104.0" font-family='system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif' font-size="15" font-weight="400" fill="#9198a1" text-anchor="start">Detects and redacts personal data in documents, then tests whether an attacker can still re-identify the people in them.</text>
+<rect x="28.0" y="130" width="60.6" height="26" rx="13" fill="#0d1117" stroke="#3d444d"/>
+<text x="38.0" y="147.5" font-family='system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif' font-size="13" font-weight="400" fill="#e6edf3" text-anchor="start">Python</text>
+<rect x="96.6" y="130" width="98.0" height="26" rx="13" fill="#0d1117" stroke="#3d444d"/>
+<text x="106.6" y="147.5" font-family='system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif' font-size="13" font-weight="400" fill="#e6edf3" text-anchor="start">transformers</text>
+<rect x="202.6" y="130" width="64.7" height="26" rx="13" fill="#0d1117" stroke="#3d444d"/>
+<text x="212.6" y="147.5" font-family='system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif' font-size="13" font-weight="400" fill="#e6edf3" text-anchor="start">GLiNER</text>
+<rect x="275.3" y="130" width="74.1" height="26" rx="13" fill="#0d1117" stroke="#3d444d"/>
+<text x="285.3" y="147.5" font-family='system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif' font-size="13" font-weight="400" fill="#e6edf3" text-anchor="start">EasyOCR</text>
+<rect x="357.4" y="130" width="76.2" height="26" rx="13" fill="#0d1117" stroke="#3d444d"/>
+<text x="367.4" y="147.5" font-family='system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif' font-size="13" font-weight="400" fill="#e6edf3" text-anchor="start">PyMuPDF</text>
+</svg>
