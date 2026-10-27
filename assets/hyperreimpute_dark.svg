@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="268" viewBox="0 0 600 268" role="img" aria-labelledby="title">
+<title id="title">Imputation RMSE by method and dataset. airfoil: HyperImpute 0.180, tuned CatBoost 0.125; compression: HyperImpute 0.148, tuned CatBoost 0.104; wine_white: HyperImpute 0.079, tuned CatBoost 0.075.</title>
+
+<text x="136.0" y="62.0" font-family='system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif' font-size="12" font-weight="400" fill="#9198a1" text-anchor="end">Mean</text>
+<text x="136.0" y="88.0" font-family='system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif' font-size="12" font-weight="400" fill="#9198a1" text-anchor="end">ICE, linear</text>
+<text x="136.0" y="114.0" font-family='system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif' font-size="12" font-weight="400" fill="#9198a1" text-anchor="end">ICE, random forest</text>
+<text x="136.0" y="140.0" font-family='system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif' font-size="12" font-weight="400" fill="#9198a1" text-anchor="end">Column-naive (paper)</text>
+<text x="136.0" y="166.0" font-family='system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif' font-size="12" font-weight="600" fill="#e6edf3" text-anchor="end">HyperImpute</text>
+<text x="136.0" y="192.0" font-family='system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif' font-size="12" font-weight="600" fill="#e6edf3" text-anchor="end">ICE, tuned CatBoost</text>
+<text x="150.0" y="30.0" font-family='ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace' font-size="12" font-weight="500" fill="#e6edf3" text-anchor="start">airfoil</text>
+<line x1="150" y1="44" x2="150" y2="200" stroke="#30363d"/>
+<line x1="150" y1="200" x2="286" y2="200" stroke="#30363d"/>
+<text x="150.0" y="216.0" font-family='ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace' font-size="10" font-weight="400" fill="#6e7681" text-anchor="start">0</text>
+<text x="286.0" y="216.0" font-family='ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace' font-size="10" font-weight="400" fill="#6e7681" text-anchor="end">0.30</text>
+<line x1="249.3" y1="58" x2="283.0" y2="58" stroke="#6e7681" stroke-width="2" stroke-linecap="round" opacity=".35"/>
+<circle cx="266.2" cy="58" r="4.5" fill="#6e7681"/>
+<line x1="215.8" y1="84" x2="260.8" y2="84" stroke="#6e7681" stroke-width="2" stroke-linecap="round" opacity=".35"/>
+<circle cx="238.3" cy="84" r="4.5" fill="#6e7681"/>
+<line x1="210.5" y1="110" x2="262.3" y2="110" stroke="#6e7681" stroke-width="2" stroke-linecap="round" opacity=".35"/>
+<circle cx="236.4" cy="110" r="4.5" fill="#6e7681"/>
+<line x1="191.8" y1="136" x2="227.5" y2="136" stroke="#6e7681" stroke-width="2" stroke-linecap="round" opacity=".35"/>
+<circle cx="209.6" cy="136" r="4.5" fill="#6e7681"/>
+<line x1="207.4" y1="162" x2="255.7" y2="162" stroke="#e6edf3" stroke-width="2" stroke-linecap="round" opacity=".35"/>
+<circle cx="231.5" cy="162" r="4.5" fill="#e6edf3"/>
+<line x1="189.5" y1="188" x2="223.5" y2="188" stroke="#f25a2c" stroke-width="2" stroke-linecap="round" opacity=".35"/>
+<circle cx="206.5" cy="188" r="4.5" fill="#f25a2c"/>
+<text x="300.0" y="30.0" font-family='ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace' font-size="12" font-weight="500" fill="#e6edf3" text-anchor="start">compression</text>
+<line x1="300" y1="44" x2="300" y2="200" stroke="#30363d"/>
+<line x1="300" y1="200" x2="436" y2="200" stroke="#30363d"/>
+<text x="300.0" y="216.0" font-family='ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace' font-size="10" font-weight="400" fill="#6e7681" text-anchor="start">0</text>
+<text x="436.0" y="216.0" font-family='ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace' font-size="10" font-weight="400" fill="#6e7681" text-anchor="end">0.25</text>
+<line x1="416.3" y1="58" x2="433.7" y2="58" stroke="#6e7681" stroke-width="2" stroke-linecap="round" opacity=".35"/>
+<circle cx="425.0" cy="58" r="4.5" fill="#6e7681"/>
+<line x1="372.2" y1="84" x2="390.0" y2="84" stroke="#6e7681" stroke-width="2" stroke-linecap="round" opacity=".35"/>
+<circle cx="381.1" cy="84" r="4.5" fill="#6e7681"/>
+<line x1="386.4" y1="110" x2="396.8" y2="110" stroke="#6e7681" stroke-width="2" stroke-linecap="round" opacity=".35"/>
+<circle cx="391.6" cy="110" r="4.5" fill="#6e7681"/>
+<line x1="355.0" y1="136" x2="369.0" y2="136" stroke="#6e7681" stroke-width="2" stroke-linecap="round" opacity=".35"/>
+<circle cx="362.0" cy="136" r="4.5" fill="#6e7681"/>
+<line x1="372.2" y1="162" x2="388.5" y2="162" stroke="#e6edf3" stroke-width="2" stroke-linecap="round" opacity=".35"/>
+<circle cx="380.3" cy="162" r="4.5" fill="#e6edf3"/>
+<line x1="347.7" y1="188" x2="365.2" y2="188" stroke="#f25a2c" stroke-width="2" stroke-linecap="round" opacity=".35"/>
+<circle cx="356.5" cy="188" r="4.5" fill="#f25a2c"/>
+<text x="450.0" y="30.0" font-family='ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace' font-size="12" font-weight="500" fill="#e6edf3" text-anchor="start">wine_white</text>
+<line x1="450" y1="44" x2="450" y2="200" stroke="#30363d"/>
+<line x1="450" y1="200" x2="586" y2="200" stroke="#30363d"/>
+<text x="450.0" y="216.0" font-family='ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace' font-size="10" font-weight="400" fill="#6e7681" text-anchor="start">0</text>
+<text x="586.0" y="216.0" font-family='ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace' font-size="10" font-weight="400" fill="#6e7681" text-anchor="end">0.15</text>
+<line x1="532.5" y1="58" x2="567.0" y2="58" stroke="#6e7681" stroke-width="2" stroke-linecap="round" opacity=".35"/>
+<circle cx="549.8" cy="58" r="4.5" fill="#6e7681"/>
+<line x1="518.0" y1="84" x2="538.7" y2="84" stroke="#6e7681" stroke-width="2" stroke-linecap="round" opacity=".35"/>
+<circle cx="528.3" cy="84" r="4.5" fill="#6e7681"/>
+<line x1="520.6" y1="110" x2="543.3" y2="110" stroke="#6e7681" stroke-width="2" stroke-linecap="round" opacity=".35"/>
+<circle cx="532.0" cy="110" r="4.5" fill="#6e7681"/>
+<line x1="513.3" y1="136" x2="530.0" y2="136" stroke="#6e7681" stroke-width="2" stroke-linecap="round" opacity=".35"/>
+<circle cx="521.6" cy="136" r="4.5" fill="#6e7681"/>
+<line x1="513.2" y1="162" x2="530.5" y2="162" stroke="#e6edf3" stroke-width="2" stroke-linecap="round" opacity=".35"/>
+<circle cx="521.9" cy="162" r="4.5" fill="#e6edf3"/>
+<line x1="509.5" y1="188" x2="526.0" y2="188" stroke="#f25a2c" stroke-width="2" stroke-linecap="round" opacity=".35"/>
+<circle cx="517.7" cy="188" r="4.5" fill="#f25a2c"/>
+<text x="0.0" y="260.0" font-family='ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace' font-size="11" font-weight="400" fill="#6e7681" text-anchor="start">RMSE, mean and ±1 sd over 10 seeds, MAR missingness. Lower is better.</text>
+</svg>
