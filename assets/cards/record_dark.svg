@@ -1,15 +1,101 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="440" height="236" viewBox="0 0 440 236" role="img" aria-labelledby="title">
+<svg xmlns="http://www.w3.org/2000/svg" width="440" height="306" viewBox="0 0 440 306" role="img" aria-labelledby="title">
 <title id="title">record. Records what your PC plays and splits it into separate tracks, tagged with title, artist and cover art.</title>
-<rect x="1" y="1" width="438" height="234" rx="14" fill="#151b23" stroke="#3d444d" stroke-width="1.5"/>
+<style>
+.redact { transform-box: fill-box; transform-origin: left; animation: redact 7s ease-in-out infinite both; }
+.label { animation: label 7s ease-in-out infinite both; }
+@keyframes redact { 0%, 12% { transform: scaleX(0); } 24%, 86% { transform: scaleX(1); } 96%, 100% { transform: scaleX(0); } }
+@keyframes label { 0%, 20% { opacity: 0; } 28%, 84% { opacity: 1; } 92%, 100% { opacity: 0; } }
+.playhead { animation: play 9s linear infinite; }
+@keyframes play { from { transform: translateX(0); } to { transform: translateX(var(--run)); } }
+@media (prefers-reduced-motion: reduce) { .redact, .label, .playhead { animation: none; } }
+</style>
+<rect x="1" y="1" width="438" height="304" rx="14" fill="#151b23" stroke="#3d444d" stroke-width="1.5"/>
 <text x="26.0" y="40.0" font-family='system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif' font-size="12" font-weight="600" fill="#f25a2c" text-anchor="start" letter-spacing="1.2">DESKTOP APP · WINDOWS</text>
 <text x="414.0" y="40.0" font-family='system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif' font-size="12" font-weight="600" fill="#f25a2c" text-anchor="end" letter-spacing="1.2">PUBLIC ↗</text>
 <text x="26.0" y="74.0" font-family='system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif' font-size="25" font-weight="650" fill="#e6edf3" text-anchor="start" letter-spacing="-0.4">record</text>
 <text x="26.0" y="104.0" font-family='system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif' font-size="15" font-weight="400" fill="#9198a1" text-anchor="start">Records what your PC plays and splits it into separate</text>
 <text x="26.0" y="126.0" font-family='system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif' font-size="15" font-weight="400" fill="#9198a1" text-anchor="start">tracks, tagged with title, artist and cover art.</text>
-<rect x="26.0" y="184" width="60.6" height="26" rx="13" fill="#0d1117" stroke="#3d444d"/>
-<text x="36.0" y="201.5" font-family='system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif' font-size="13" font-weight="400" fill="#e6edf3" text-anchor="start">Python</text>
-<rect x="94.6" y="184" width="85.5" height="26" rx="13" fill="#0d1117" stroke="#3d444d"/>
-<text x="104.6" y="201.5" font-family='system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif' font-size="13" font-weight="400" fill="#e6edf3" text-anchor="start">pywebview</text>
-<rect x="188.1" y="184" width="73.0" height="26" rx="13" fill="#0d1117" stroke="#3d444d"/>
-<text x="198.1" y="201.5" font-family='system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif' font-size="13" font-weight="400" fill="#e6edf3" text-anchor="start">mutagen</text>
+<rect x="26" y="140" width="388" height="100" rx="10" fill="#0d1117" stroke="#3d444d"/>
+<rect x="40.0" y="175.0" width="3.1" height="14.0" rx="1" fill="#768390"/>
+<rect x="45.1" y="165.5" width="3.1" height="33.0" rx="1" fill="#768390"/>
+<rect x="50.3" y="165.7" width="3.1" height="32.7" rx="1" fill="#768390"/>
+<rect x="55.4" y="172.5" width="3.1" height="18.9" rx="1" fill="#768390"/>
+<rect x="60.6" y="174.5" width="3.1" height="15.0" rx="1" fill="#768390"/>
+<rect x="65.7" y="171.5" width="3.1" height="21.0" rx="1" fill="#768390"/>
+<rect x="70.9" y="168.9" width="3.1" height="26.1" rx="1" fill="#768390"/>
+<rect x="76.0" y="174.8" width="3.1" height="14.4" rx="1" fill="#768390"/>
+<rect x="81.1" y="164.9" width="3.1" height="34.3" rx="1" fill="#768390"/>
+<rect x="86.3" y="162.6" width="3.1" height="38.8" rx="1" fill="#768390"/>
+<rect x="91.4" y="170.5" width="3.1" height="23.1" rx="1" fill="#768390"/>
+<rect x="96.6" y="171.4" width="3.1" height="21.1" rx="1" fill="#768390"/>
+<rect x="101.7" y="171.6" width="3.1" height="20.9" rx="1" fill="#768390"/>
+<rect x="106.9" y="174.0" width="3.1" height="15.9" rx="1" fill="#768390"/>
+<rect x="112.0" y="174.8" width="3.1" height="14.4" rx="1" fill="#768390"/>
+<rect x="117.1" y="167.2" width="3.1" height="29.5" rx="1" fill="#768390"/>
+<rect x="122.3" y="163.3" width="3.1" height="37.5" rx="1" fill="#768390"/>
+<rect x="127.4" y="169.8" width="3.1" height="24.3" rx="1" fill="#768390"/>
+<rect x="132.6" y="169.3" width="3.1" height="25.4" rx="1" fill="#768390"/>
+<rect x="137.7" y="165.6" width="3.1" height="32.8" rx="1" fill="#768390"/>
+<rect x="142.9" y="170.7" width="3.1" height="22.6" rx="1" fill="#768390"/>
+<rect x="148.0" y="178.5" width="3.1" height="7.1" rx="1" fill="#768390"/>
+<rect x="153.1" y="180.8" width="3.1" height="2.4" rx="1" fill="#768390"/>
+<rect x="158.3" y="180.8" width="3.1" height="2.4" rx="1" fill="#768390"/>
+<rect x="163.4" y="180.8" width="3.1" height="2.4" rx="1" fill="#768390"/>
+<rect x="168.6" y="175.4" width="3.1" height="13.2" rx="1" fill="#768390"/>
+<rect x="173.7" y="162.4" width="3.1" height="39.2" rx="1" fill="#768390"/>
+<rect x="178.9" y="166.9" width="3.1" height="30.2" rx="1" fill="#768390"/>
+<rect x="184.0" y="174.5" width="3.1" height="15.0" rx="1" fill="#768390"/>
+<rect x="189.1" y="172.2" width="3.1" height="19.6" rx="1" fill="#768390"/>
+<rect x="194.3" y="173.7" width="3.1" height="16.6" rx="1" fill="#768390"/>
+<rect x="199.4" y="172.8" width="3.1" height="18.3" rx="1" fill="#768390"/>
+<rect x="204.6" y="170.1" width="3.1" height="23.8" rx="1" fill="#768390"/>
+<rect x="209.7" y="162.9" width="3.1" height="38.1" rx="1" fill="#768390"/>
+<rect x="214.9" y="165.5" width="3.1" height="32.9" rx="1" fill="#768390"/>
+<rect x="220.0" y="174.0" width="3.1" height="16.0" rx="1" fill="#768390"/>
+<rect x="225.1" y="167.1" width="3.1" height="29.8" rx="1" fill="#768390"/>
+<rect x="230.3" y="169.7" width="3.1" height="24.7" rx="1" fill="#768390"/>
+<rect x="235.4" y="174.6" width="3.1" height="14.7" rx="1" fill="#768390"/>
+<rect x="240.6" y="173.1" width="3.1" height="17.9" rx="1" fill="#768390"/>
+<rect x="245.7" y="167.1" width="3.1" height="29.9" rx="1" fill="#768390"/>
+<rect x="250.9" y="167.0" width="3.1" height="30.0" rx="1" fill="#768390"/>
+<rect x="256.0" y="173.7" width="3.1" height="16.6" rx="1" fill="#768390"/>
+<rect x="261.1" y="164.3" width="3.1" height="35.4" rx="1" fill="#768390"/>
+<rect x="266.3" y="164.7" width="3.1" height="34.7" rx="1" fill="#768390"/>
+<rect x="271.4" y="177.2" width="3.1" height="9.6" rx="1" fill="#768390"/>
+<rect x="276.6" y="180.8" width="3.1" height="2.4" rx="1" fill="#768390"/>
+<rect x="281.7" y="180.8" width="3.1" height="2.4" rx="1" fill="#768390"/>
+<rect x="286.9" y="180.8" width="3.1" height="2.4" rx="1" fill="#768390"/>
+<rect x="292.0" y="177.9" width="3.1" height="8.1" rx="1" fill="#768390"/>
+<rect x="297.1" y="164.6" width="3.1" height="34.8" rx="1" fill="#768390"/>
+<rect x="302.3" y="162.8" width="3.1" height="38.4" rx="1" fill="#768390"/>
+<rect x="307.4" y="171.2" width="3.1" height="21.7" rx="1" fill="#768390"/>
+<rect x="312.6" y="169.9" width="3.1" height="24.3" rx="1" fill="#768390"/>
+<rect x="317.7" y="169.5" width="3.1" height="25.0" rx="1" fill="#768390"/>
+<rect x="322.9" y="174.4" width="3.1" height="15.3" rx="1" fill="#768390"/>
+<rect x="328.0" y="174.5" width="3.1" height="15.0" rx="1" fill="#768390"/>
+<rect x="333.1" y="168.1" width="3.1" height="27.9" rx="1" fill="#768390"/>
+<rect x="338.3" y="164.5" width="3.1" height="35.0" rx="1" fill="#768390"/>
+<rect x="343.4" y="171.1" width="3.1" height="21.8" rx="1" fill="#768390"/>
+<rect x="348.6" y="167.9" width="3.1" height="28.2" rx="1" fill="#768390"/>
+<rect x="353.7" y="164.2" width="3.1" height="35.7" rx="1" fill="#768390"/>
+<rect x="358.9" y="169.8" width="3.1" height="24.3" rx="1" fill="#768390"/>
+<rect x="364.0" y="174.5" width="3.1" height="15.0" rx="1" fill="#768390"/>
+<rect x="369.1" y="173.7" width="3.1" height="16.7" rx="1" fill="#768390"/>
+<rect x="374.3" y="169.3" width="3.1" height="25.3" rx="1" fill="#768390"/>
+<rect x="379.4" y="172.2" width="3.1" height="19.6" rx="1" fill="#768390"/>
+<rect x="384.6" y="168.0" width="3.1" height="28.0" rx="1" fill="#768390"/>
+<rect x="389.7" y="162.0" width="3.1" height="39.9" rx="1" fill="#768390"/>
+<rect x="394.9" y="167.0" width="3.1" height="30.0" rx="1" fill="#768390"/>
+<path d="M159.8 154.0 V210.0" stroke="#f25a2c" stroke-width="1.5" stroke-dasharray="3 3"/>
+<path d="M283.3 154.0 V210.0" stroke="#f25a2c" stroke-width="1.5" stroke-dasharray="3 3"/>
+<text x="99.9" y="230.0" font-family='system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif' font-size="12" font-weight="400" fill="#9198a1" text-anchor="middle">track 1.mp3</text>
+<text x="221.5" y="230.0" font-family='system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif' font-size="12" font-weight="400" fill="#9198a1" text-anchor="middle">track 2.mp3</text>
+<text x="341.6" y="230.0" font-family='system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif' font-size="12" font-weight="400" fill="#9198a1" text-anchor="middle">track 3.mp3</text>
+<g class="playhead" style="--run:360px"><path d="M40 156.0 V208.0" stroke="#e6edf3" stroke-width="2"/><circle cx="40" cy="156.0" r="3.5" fill="#e6edf3"/></g>
+<rect x="26.0" y="254" width="60.6" height="26" rx="13" fill="#0d1117" stroke="#3d444d"/>
+<text x="36.0" y="271.5" font-family='system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif' font-size="13" font-weight="400" fill="#e6edf3" text-anchor="start">Python</text>
+<rect x="94.6" y="254" width="85.5" height="26" rx="13" fill="#0d1117" stroke="#3d444d"/>
+<text x="104.6" y="271.5" font-family='system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif' font-size="13" font-weight="400" fill="#e6edf3" text-anchor="start">pywebview</text>
+<rect x="188.1" y="254" width="73.0" height="26" rx="13" fill="#0d1117" stroke="#3d444d"/>
+<text x="198.1" y="271.5" font-family='system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif' font-size="13" font-weight="400" fill="#e6edf3" text-anchor="start">mutagen</text>
 </svg>
