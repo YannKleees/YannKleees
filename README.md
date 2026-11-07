@@ -1,34 +1,16 @@
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/header_dark.svg">
-  <img src="assets/header_light.svg" width="100%" alt="Yann Klees. Data scientist. MSc Applied Data Science, Utrecht University. Based in Luxembourg.">
-</picture>
+### Yann Klees
 
-### Projects
+Data science student from Luxembourg: MSc Applied Data Science at Utrecht University, after a BSc in Data Science and Artificial Intelligence at Maastricht University. I work on NLP, computer vision and recommender systems.
 
-<p>
-<picture><source media="(prefers-color-scheme: dark)" srcset="assets/cards/thesis_dark.svg"><img src="assets/cards/thesis_light.svg" width="98.5%" alt="thesis project card"></picture>
-</p>
+**Projects**
 
-<p>
-<picture><source media="(prefers-color-scheme: dark)" srcset="assets/cards/tagging_dark.svg"><img src="assets/cards/tagging_light.svg" width="49%" alt="tagging project card"></picture>
-<a href="https://github.com/YannKleees/hyperreimpute"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/cards/hyperreimpute_dark.svg"><img src="assets/cards/hyperreimpute_light.svg" width="49%" alt="hyperreimpute project card"></picture></a>
-</p>
+- [tagging](https://github.com/YannKleees/tagging): finds and redacts personal data in English, French, German and Luxembourgish text. Rust core with rules and gazetteers plus a GLiNER model; recall on hard Luxembourgish names rises from 0.57 (rules) to 0.91.
+- [pii-anonymisation-thesis](https://github.com/YannKleees/pii-anonymisation-thesis): my BSc thesis. Layout-aware anonymisation of student documents (cover pages, tables, images); recall 0.998 on 500 synthetic documents, and an attacker's usable signals drop from 17.3 to 0.16 per document.
+- [orthodontic-par](https://github.com/YannKleees/orthodontic-par): web app that turns five intraoral photos into suggested PAR index boxes. YOLO11s detector trained on the public OMNI dataset, mAP50 0.697 on its test split (the dataset paper's best: 0.664).
+- [hyperreimpute](https://github.com/YannKleees/hyperreimpute): reproduction of HyperImpute (ICML 2022) on three UCI datasets, with a version check and tests of the method's limits.
 
-<p>
-<picture><source media="(prefers-color-scheme: dark)" srcset="assets/cards/recommender_dark.svg"><img src="assets/cards/recommender_light.svg" width="49%" alt="recommender project card"></picture>
-<picture><source media="(prefers-color-scheme: dark)" srcset="assets/cards/dental_dark.svg"><img src="assets/cards/dental_light.svg" width="49%" alt="dental project card"></picture>
-</p>
+Also: [music-mystery](https://github.com/YannKleees/music-mystery) (adaptive music quiz, HCI) · [pizza-ordering-system](https://github.com/YannKleees/pizza-ordering-system) (MySQL desktop app)
 
-<p>
-<picture><source media="(prefers-color-scheme: dark)" srcset="assets/cards/datapluck_dark.svg"><img src="assets/cards/datapluck_light.svg" width="49%" alt="datapluck project card"></picture>
-<a href="https://github.com/YannKleees/record"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/cards/record_dark.svg"><img src="assets/cards/record_light.svg" width="49%" alt="record project card"></picture></a>
-</p>
+Languages: Luxembourgish, English, French, German
 
-### Stack
-
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/stack_dark.svg">
-  <img src="assets/stack_light.svg" width="100%" alt="Tools I use most: PyTorch, scikit-learn, transformers, OpenCV, Python, pandas, NumPy, Jupyter, R, Rust, TypeScript, FastAPI, React, Git">
-</picture>
-
-Private projects: code on request. [LinkedIn](https://www.linkedin.com/in/yann-klees-a0b8a6334) · [yannklees@gmail.com](mailto:yannklees@gmail.com)
+[LinkedIn](https://www.linkedin.com/in/yann-klees-a0b8a6334) · [yannklees@gmail.com](mailto:yannklees@gmail.com)
