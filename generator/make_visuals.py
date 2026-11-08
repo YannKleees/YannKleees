@@ -212,7 +212,8 @@ ICONS = {
 
 
 def button(label, icon, t, primary=False):
-    w = int(len(label) * 7.0 + 60)
+    wide, narrow = set("mwMW@%"), set("ijlrtf.,:;!|' -")
+    w = int(sum(11.5 if c in wide else 4.6 if c in narrow else 7.6 for c in label) + 62)
     fg = "#ffffff" if primary else t["text"]
     bg = t["accent"] if primary else t["panel"]
     stroke = t["accent"] if primary else t["border"]

@@ -1,6 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="186" height="34" viewBox="0 0 186 34" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans',Helvetica,Arial,sans-serif">
-<rect x="0.5" y="0.5" width="185" height="33" rx="17" fill="#0969da" stroke="#0969da"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="187" height="34" viewBox="0 0 187 34" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans',Helvetica,Arial,sans-serif">
+<rect x="0.5" y="0.5" width="186" height="33" rx="17" fill="#0969da" stroke="#0969da"/>
 <g transform="translate(14,9)" fill="none" stroke="#ffffff" stroke-width="1.6"><path d="M2 3.5h4l1.5 1.8H14v7.7H2z"/></g>
 <text x="38" y="22" font-size="13.5" font-weight="600" fill="#ffffff">open hyperreimpute</text>
-<text x="168" y="22" font-size="14" text-anchor="middle" fill="#ffffff">↗</text>
+<text x="169" y="22" font-size="14" text-anchor="middle" fill="#ffffff">↗</text>
 </svg>
