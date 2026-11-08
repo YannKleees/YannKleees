@@ -4,7 +4,8 @@
 
 Steps: remove the background with rembg, crop to head and shoulders, map each cell of the photo to a
 character (denser characters for brighter skin and clothes) coloured like the photo, and write
-assets/header_light.svg and assets/header_dark.svg. The text on the right comes from profile.json.
+assets/header_{light,dark}.svg plus the window bar
+assets/header_bar_{light,dark}.svg. The text on the right comes from profile.json.
 """
 import argparse
 import json
@@ -57,6 +58,8 @@ def crop_head_and_shoulders(img, mask):
 def to_grid(img, mask, cols):
     rows = round(cols * img.shape[0] / img.shape[1] * CW / LH)
     gray = cv2.createCLAHE(clipLimit=3.0, tileGridSize=(6, 6)).apply(cv2.cvtColor(img, cv2.COLOR_BGR2GRAY))
+    blur = cv2.GaussianBlur(gray, (0, 0), 6)
+    gray = cv2.addWeighted(gray, 1.8, blur, -0.8, 0)           # sharpen eyes, brows and mouth
     small = cv2.resize(img, (cols, rows), interpolation=cv2.INTER_AREA)
     keep = cv2.resize(mask.astype(np.uint8) * 255, (cols, rows), interpolation=cv2.INTER_AREA) >= 128
     g = cv2.resize(gray, (cols, rows), interpolation=cv2.INTER_AREA).astype(float)
@@ -72,14 +75,16 @@ def to_grid(img, mask, cols):
                 if not keep[r, c]:
                     row.append(None)
                     continue
-                ch = RAMP[min(len(RAMP) - 1, 3 + int(g[r, c] * (len(RAMP) - 3)))]
+                # dark background: bright parts get dense characters; light background: dark parts do
+                v, lo = (g[r, c], 3) if theme == "dark" else (1 - g[r, c], 2)
+                ch = RAMP[min(len(RAMP) - 1, lo + int(v * (len(RAMP) - lo)))]
                 b, gr, rd = (int(v) for v in small[r, c])
                 if theme == "dark":                          # lift dark colours off the dark background
                     rd, gr, b = (int(v + (255 - v) * 0.12) for v in (rd, gr, b))
                 else:                                        # darker and more saturated on white
                     h, s, v = cv2.cvtColor(np.uint8([[[b, gr, rd]]]), cv2.COLOR_BGR2HSV)[0, 0].astype(int)
                     b, gr, rd = (int(x) for x in cv2.cvtColor(
-                        np.uint8([[[h, min(255, int(s * 1.5)), int(v * 0.62)]]]), cv2.COLOR_HSV2BGR)[0, 0])
+                        np.uint8([[[h, min(255, int(s * 1.6)), int(v * 0.6)]]]), cv2.COLOR_HSV2BGR)[0, 0])
                 row.append((ch, (rd, gr, b)))
             grid.append(row)
         grids[theme] = grid
@@ -142,20 +147,9 @@ def info_svg(cfg, t, x, y, delay):
     return "\n".join(out)
 
 
-def header_svg(grid, rows, cols, cfg, t):
-    px, py = 28, 64
-    ix = px + cols * CW + 40
-    width = int(ix + 512)
-    height = int(py + rows * LH + 30)
-    css, portrait = portrait_svg(grid, px, py)
-    n = len(cfg["fields"])
-    info_y = int(py + max(20, (rows * LH - (46 + n * 27 + 20)) / 2))   # centre the panel next to the portrait
-    dots = "".join(f'<circle cx="{24 + i * 20}" cy="22" r="6" fill="{c}"/>' for i, c in enumerate(DOTS))
-    return f'''<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="0 0 {width} {height}" role="img" aria-labelledby="t">
-<title id="t">{escape(cfg["alt"])}</title>
-<style>
-text{{font-family:{FONT}}}
-.row{{font-size:{FS}px;opacity:0;animation:in .5s ease-out forwards}}
+STYLE = """
+text{{font-family:{font}}}
+.row{{font-size:{fs}px;opacity:0;animation:in .5s ease-out forwards}}
 {css}
 .info{{opacity:0;animation:slide .45s ease-out forwards}}
 .kv{{font-size:14px}}
@@ -165,16 +159,37 @@ text{{font-family:{FONT}}}
 @keyframes slide{{from{{opacity:0;transform:translateX(12px)}}to{{opacity:1;transform:none}}}}
 @keyframes blink{{0%{{opacity:1}}50%{{opacity:0}}}}
 @media (prefers-reduced-motion:reduce){{.row,.info,.cursor{{animation:none;opacity:1}}}}
-</style>
-<rect x="1" y="1" width="{width - 2}" height="{height - 2}" rx="12" fill="{t["bg"]}" stroke="{t["border"]}"/>
-<path d="M1 13a12 12 0 0 1 12-12h{width - 26}a12 12 0 0 1 12 12v31H1z" fill="{t["bar"]}"/>
-<line x1="1" y1="44" x2="{width - 1}" y2="44" stroke="{t["border"]}"/>
+"""
+
+
+def header_svgs(grid, rows, cols, cfg, t):
+    """Two images: the window bar (the clickable part of the README's <details>) and the window body."""
+    px, py = 28, 24
+    ix = px + cols * CW + 40
+    width = int(ix + 512)
+    height = int(py + rows * LH + 26)
+    css, portrait = portrait_svg(grid, px, py)
+    n = len(cfg["fields"])
+    info_y = int(py + max(20, (rows * LH - (46 + n * 27 + 20)) / 2))   # centre the panel next to the portrait
+    dots = "".join(f'<circle cx="{24 + i * 20}" cy="22" r="6" fill="{c}"/>' for i, c in enumerate(DOTS))
+    who = f'{escape(cfg["user"])}@{escape(cfg["host"])}'
+    bar = f'''<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="44" viewBox="0 0 {width} 44" role="img" aria-label="Terminal window bar, click to open or close">
+<style>text{{font-family:{FONT}}}</style>
+<path d="M1 13a12 12 0 0 1 12-12h{width - 26}a12 12 0 0 1 12 12v30H1z" fill="{t["bar"]}" stroke="{t["border"]}"/>
 {dots}
-<text x="{width / 2}" y="27" text-anchor="middle" font-size="13" fill="{t["dim"]}">{escape(cfg["user"])}@{escape(cfg["host"])}: ~ $ neofetch</text>
+<text x="{width / 2}" y="27" text-anchor="middle" font-size="13" fill="{t["dim"]}">{who}: ~ $ neofetch</text>
+<text x="{width - 20}" y="27" text-anchor="end" font-size="12" fill="{t["dim"]}">click to open / close</text>
+</svg>
+'''
+    body = f'''<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="0 0 {width} {height}" role="img" aria-labelledby="t">
+<title id="t">{escape(cfg["alt"])}</title>
+<style>{STYLE.format(font=FONT, fs=FS, css=css)}</style>
+<path d="M1 1h{width - 2}v{height - 13}a12 12 0 0 1 -12 12h-{width - 26}a12 12 0 0 1 -12 -12z" fill="{t["bg"]}" stroke="{t["border"]}"/>
 {portrait}
 {info_svg(cfg, t, ix, info_y, rows * 28 + 200)}
 </svg>
 '''
+    return bar, body
 
 
 def main():
@@ -184,16 +199,24 @@ def main():
     ap.add_argument("--out", type=Path, default=ROOT / "assets")
     ap.add_argument("--cols", type=int, default=96, help="characters per portrait line")
     ap.add_argument("--model", default="u2net_human_seg", help="rembg model used to remove the background")
+    ap.add_argument("--mask", type=Path, help="use this black-and-white mask instead of rembg")
     args = ap.parse_args()
 
     cfg = json.loads(args.config.read_text(encoding="utf-8"))
-    img, mask = crop_head_and_shoulders(*cut_out(args.photo, args.model))
+    if args.mask:
+        img = cv2.cvtColor(np.array(Image.open(args.photo).convert("RGB")), cv2.COLOR_RGB2BGR)
+        mask = np.array(Image.open(args.mask).convert("L").resize(img.shape[1::-1])) > 127
+    else:
+        img, mask = cut_out(args.photo, args.model)
+    img, mask = crop_head_and_shoulders(img, mask)
     grids, rows = to_grid(img, mask, args.cols)
     args.out.mkdir(parents=True, exist_ok=True)
     for theme, t in THEMES.items():
-        path = args.out / f"header_{theme}.svg"
-        path.write_text(header_svg(grids[theme], rows, args.cols, cfg, t), encoding="utf-8")
-        print(f"wrote {path} ({path.stat().st_size // 1024} KB)")
+        bar, body = header_svgs(grids[theme], rows, args.cols, cfg, t)
+        for name, svg in (("header_bar", bar), ("header", body)):
+            path = args.out / f"{name}_{theme}.svg"
+            path.write_text(svg, encoding="utf-8")
+            print(f"wrote {path} ({path.stat().st_size // 1024} KB)")
 
 
 if __name__ == "__main__":
