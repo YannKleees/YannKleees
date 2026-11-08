@@ -1,0 +1,4 @@
+rembg[cpu]==2.0.87
+opencv-python-headless
+pillow
+numpy
