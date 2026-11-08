@@ -1,11 +1,10 @@
-"""Turn a photo into the profile header: a coloured ASCII portrait next to a terminal-style info panel.
+"""Turn a photo into the profile header: an ASCII portrait next to a short profile.
 
     python generator/make_header.py --photo generator/photo.jpg
 
 Steps: remove the background with rembg, crop to head and shoulders, map each cell of the photo to a
-character (denser characters for brighter skin and clothes) coloured like the photo, and write
-assets/header_{light,dark}.svg plus the window bar
-assets/header_bar_{light,dark}.svg. The text on the right comes from profile.json.
+character coloured like the photo, and write assets/profile_light.svg and assets/profile_dark.svg.
+The text on the right comes from profile.json.
 """
 import argparse
 import json
@@ -21,16 +20,12 @@ ROOT = Path(__file__).resolve().parent.parent
 RAMP = " .:-=+*#%@"
 CW, LH, FS = 4.8, 8.4, 8.0          # portrait cell width, line height and font size in px
 FONT = "ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace"
+SANS = "-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans',Helvetica,Arial,sans-serif"
 
 THEMES = {
-    "light": dict(bg="#f6f8fa", border="#d0d7de", bar="#eaeef2", text="#1f2328", dim="#59636e",
-                  accent="#0969da", accent2="#8250df",
-                  blocks=["#1f2328", "#cf222e", "#1a7f37", "#9a6700", "#0969da", "#8250df", "#1b7c83", "#6e7781"]),
-    "dark": dict(bg="#0d1117", border="#30363d", bar="#161b22", text="#e6edf3", dim="#8d96a0",
-                 accent="#58a6ff", accent2="#d2a8ff",
-                 blocks=["#484f58", "#ff7b72", "#3fb950", "#d29922", "#58a6ff", "#bc8cff", "#39c5cf", "#b1bac4"]),
+    "light": dict(bg="#ffffff", border="#d8dee4", text="#1f2328", dim="#656d76"),
+    "dark": dict(bg="#0d1117", border="#30363d", text="#e6edf3", dim="#8d96a0"),
 }
-DOTS = ["#ff5f57", "#febc2e", "#28c840"]
 
 
 # ---------------------------------------------------------------- photo -> character grid
@@ -122,74 +117,47 @@ def portrait_svg(grid, px, py):
                          f'class="c{cls}">{escape("".join(chars))}</tspan>')
         if spans:
             lines.append(f'<text class="row" y="{py + r * LH + FS:.1f}" '
-                         f'style="animation-delay:{r * 28}ms">{"".join(spans)}</text>')
+                         f'style="animation-delay:{r * 18}ms">{"".join(spans)}</text>')
     return css, "\n".join(lines)
 
 
-def info_svg(cfg, t, x, y, delay):
-    out = [f'<text x="{x}" y="{y}" class="info title" style="animation-delay:{delay}ms">'
-           f'<tspan fill="{t["accent"]}">{escape(cfg["user"])}</tspan><tspan fill="{t["dim"]}">@</tspan>'
-           f'<tspan fill="{t["accent2"]}">{escape(cfg["host"])}</tspan></text>',
-           f'<rect x="{x}" y="{y + 15}" width="190" height="2" fill="{t["border"]}" class="info" '
-           f'style="animation-delay:{delay + 120}ms"/>']
-    y += 46
-    for i, (key, value) in enumerate(cfg["fields"]):
-        d = delay + 240 + i * 120
-        out.append(f'<text x="{x}" y="{y}" class="info kv" style="animation-delay:{d}ms">'
-                   f'<tspan fill="{t["accent"]}" font-weight="700">{escape(key)}</tspan>'
-                   f'<tspan x="{x + 96}" fill="{t["text"]}">{escape(value)}</tspan></text>')
-        y += 27
-    d = delay + 240 + len(cfg["fields"]) * 120
-    for i, col in enumerate(t["blocks"]):
-        out.append(f'<rect x="{x + i * 30}" y="{y - 10}" width="26" height="22" rx="3" fill="{col}" class="info" '
-                   f'style="animation-delay:{d + i * 60}ms"/>')
-    out.append(f'<rect x="{x + 248}" y="{y - 8}" width="9" height="18" fill="{t["accent"]}" class="cursor"/>')
-    return "\n".join(out)
+def info_svg(cfg, t, x, y):
+    out = [f'<text x="{x}" y="{y}" font-size="28" font-weight="600" fill="{t["text"]}">{escape(cfg["name"])}</text>',
+           f'<text x="{x}" y="{y + 28}" font-size="15" fill="{t["dim"]}">{escape(cfg["tagline"])}</text>']
+    y += 74
+    for label, value in cfg["fields"]:
+        values = value if isinstance(value, list) else [value]
+        out.append(f'<text x="{x}" y="{y}" font-size="11" font-weight="600" letter-spacing="1" fill="{t["dim"]}">'
+                   f'{escape(label.upper())}</text>')
+        for i, v in enumerate(values):
+            out.append(f'<text x="{x + 104}" y="{y + i * 21}" font-size="14" fill="{t["text"]}">{escape(v)}</text>')
+        y += 21 * len(values) + 14
+    return "\n".join(out), y
 
 
-STYLE = """
-text{{font-family:{font}}}
-.row{{font-size:{fs}px;opacity:0;animation:in .5s ease-out forwards}}
-{css}
-.info{{opacity:0;animation:slide .45s ease-out forwards}}
-.kv{{font-size:14px}}
-.title{{font-size:20px;font-weight:700}}
-.cursor{{animation:blink 1.1s steps(1) infinite}}
-@keyframes in{{from{{opacity:0}}to{{opacity:1}}}}
-@keyframes slide{{from{{opacity:0;transform:translateX(12px)}}to{{opacity:1;transform:none}}}}
-@keyframes blink{{0%{{opacity:1}}50%{{opacity:0}}}}
-@media (prefers-reduced-motion:reduce){{.row,.info,.cursor{{animation:none;opacity:1}}}}
-"""
-
-
-def header_svgs(grid, rows, cols, cfg, t):
-    """Two images: the window bar (the clickable part of the README's <details>) and the window body."""
-    px, py = 28, 24
-    ix = px + cols * CW + 40
-    width = int(ix + 512)
-    height = int(py + rows * LH + 26)
+def header_svg(grid, rows, cols, cfg, t):
+    px, py = 24, 24
+    ix = int(px + cols * CW + 44)
+    width = ix + 440
+    height = int(py + rows * LH + 24)
     css, portrait = portrait_svg(grid, px, py)
-    n = len(cfg["fields"])
-    info_y = int(py + max(20, (rows * LH - (46 + n * 27 + 20)) / 2))   # centre the panel next to the portrait
-    dots = "".join(f'<circle cx="{24 + i * 20}" cy="22" r="6" fill="{c}"/>' for i, c in enumerate(DOTS))
-    who = f'{escape(cfg["user"])}@{escape(cfg["host"])}'
-    bar = f'''<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="44" viewBox="0 0 {width} 44" role="img" aria-label="Terminal window bar, click to open or close">
-<style>text{{font-family:{FONT}}}</style>
-<path d="M1 13a12 12 0 0 1 12-12h{width - 26}a12 12 0 0 1 12 12v30H1z" fill="{t["bar"]}" stroke="{t["border"]}"/>
-{dots}
-<text x="{width / 2}" y="27" text-anchor="middle" font-size="13" fill="{t["dim"]}">{who}: ~ $ neofetch</text>
-<text x="{width - 20}" y="27" text-anchor="end" font-size="12" fill="{t["dim"]}">click to open / close</text>
-</svg>
-'''
-    body = f'''<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="0 0 {width} {height}" role="img" aria-labelledby="t">
+    _, end = info_svg(cfg, t, ix, 0)
+    info, _ = info_svg(cfg, t, ix, int((height - (end - 14)) / 2) + 22)    # centred next to the portrait
+    return f'''<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="0 0 {width} {height}" role="img" aria-labelledby="t">
 <title id="t">{escape(cfg["alt"])}</title>
-<style>{STYLE.format(font=FONT, fs=FS, css=css)}</style>
-<path d="M1 1h{width - 2}v{height - 13}a12 12 0 0 1 -12 12h-{width - 26}a12 12 0 0 1 -12 -12z" fill="{t["bg"]}" stroke="{t["border"]}"/>
+<style>
+.row{{font-family:{FONT};font-size:{FS}px;opacity:0;animation:in .6s ease-out forwards}}
+{css}
+@keyframes in{{to{{opacity:1}}}}
+@media (prefers-reduced-motion:reduce){{.row{{animation:none;opacity:1}}}}
+</style>
+<rect x="0.5" y="0.5" width="{width - 1}" height="{height - 1}" rx="12" fill="{t["bg"]}" stroke="{t["border"]}"/>
 {portrait}
-{info_svg(cfg, t, ix, info_y, rows * 28 + 200)}
+<g font-family="{SANS}">
+{info}
+</g>
 </svg>
 '''
-    return bar, body
 
 
 def main():
@@ -212,11 +180,9 @@ def main():
     grids, rows = to_grid(img, mask, args.cols)
     args.out.mkdir(parents=True, exist_ok=True)
     for theme, t in THEMES.items():
-        bar, body = header_svgs(grids[theme], rows, args.cols, cfg, t)
-        for name, svg in (("header_bar", bar), ("header_body", body)):
-            path = args.out / f"{name}_{theme}.svg"
-            path.write_text(svg, encoding="utf-8")
-            print(f"wrote {path} ({path.stat().st_size // 1024} KB)")
+        path = args.out / f"profile_{theme}.svg"
+        path.write_text(header_svg(grids[theme], rows, args.cols, cfg, t), encoding="utf-8")
+        print(f"wrote {path} ({path.stat().st_size // 1024} KB)")
 
 
 if __name__ == "__main__":

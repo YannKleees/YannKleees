@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="157" height="32" viewBox="0 0 157 32" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans',Helvetica,Arial,sans-serif">
+<rect x="0.5" y="0.5" width="156" height="31" rx="8" fill="#161b22" stroke="#30363d"/>
+<g transform="translate(13,9)" fill="none" stroke="#e6edf3" stroke-width="1.5" stroke-linejoin="round"><path d="M1 2.5h4l1.4 1.7H13v7.8H1z"/></g>
+<text x="35" y="20.5" font-size="13" font-weight="500" fill="#e6edf3">View repository</text>
+<text x="141" y="20.5" font-size="12" text-anchor="middle" fill="#8d96a0">↗</text>
+</svg>

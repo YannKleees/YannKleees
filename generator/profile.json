@@ -1,16 +1,11 @@
 {
-  "user": "yann",
-  "host": "luxembourg",
+  "name": "Yann Klees",
+  "tagline": "Data science student from Luxembourg",
   "fields": [
-    ["name", "Yann Klees"],
-    ["role", "Data science student"],
-    ["msc", "Applied Data Science, Utrecht University"],
-    ["bsc", "Data Science and AI, Maastricht University"],
-    ["focus", "NLP, computer vision, recommender systems"],
-    ["languages", "Luxembourgish, English, French, German"],
-    ["stack", "Python, PyTorch, scikit-learn, transformers,"],
-    ["", "OpenCV, pandas, SQL, R, Rust, TypeScript"],
-    ["based in", "Luxembourg"]
+    ["Education", ["MSc Applied Data Science, Utrecht University", "BSc Data Science and AI, Maastricht University"]],
+    ["Focus", "NLP, computer vision, recommender systems"],
+    ["Languages", "Luxembourgish, English, French, German"],
+    ["Stack", ["Python, PyTorch, scikit-learn, transformers", "pandas, SQL, R, Rust, TypeScript"]]
   ],
-  "alt": "Yann Klees, data science student from Luxembourg. ASCII portrait with a short profile: MSc Applied Data Science at Utrecht University, BSc Data Science and AI at Maastricht University, working on NLP, computer vision and recommender systems."
+  "alt": "Yann Klees, data science student from Luxembourg. MSc Applied Data Science at Utrecht University, BSc Data Science and AI at Maastricht University. Works on NLP, computer vision and recommender systems. Speaks Luxembourgish, English, French and German."
 }

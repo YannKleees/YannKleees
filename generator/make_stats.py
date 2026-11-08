@@ -18,7 +18,7 @@ SKIP_LANGS = {"Jupyter Notebook"}       # notebook files are mostly outputs and 
 SANS = "-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans',Helvetica,Arial,sans-serif"
 
 THEMES = {
-    "light": dict(bg="#ffffff", border="#d0d7de", text="#1f2328", dim="#59636e", empty="#eff2f5",
+    "light": dict(bg="#ffffff", border="#d8dee4", text="#1f2328", dim="#59636e", empty="#eff2f5",
                   scale=["#c6e0ff", "#80b8ff", "#3d8bfd", "#0969da"]),
     "dark": dict(bg="#0d1117", border="#30363d", text="#e6edf3", dim="#8d96a0", empty="#161b22",
                  scale=["#0c2d6b", "#1158c7", "#388bfd", "#79c0ff"]),
@@ -83,13 +83,8 @@ def svg(user, t):
 
     W, cell, gap, x0, y0 = 880, 12, 3, 24, 74
     out = [f'<rect x="0.5" y="0.5" width="{W - 1}" height="{{H}}" rx="12" fill="{t["bg"]}" stroke="{t["border"]}"/>',
-           f'<text x="24" y="38" font-size="20" font-weight="700" fill="{t["text"]}">{cal["totalContributions"]}</text>'
-           f'<text x="{24 + len(str(cal["totalContributions"])) * 12 + 8}" y="38" font-size="14" fill="{t["dim"]}">'
-           f'contributions in the last year</text>']
-    busiest = max(days, key=lambda d: d["contributionCount"])
-    active = sum(1 for d in days if d["contributionCount"])
-    out.append(f'<text x="{W - 24}" y="38" text-anchor="end" font-size="12.5" fill="{t["dim"]}">active on {active} days'
-               f' · busiest day: {busiest["contributionCount"]} on {date.fromisoformat(busiest["date"]):%d %b %Y}</text>')
+           f'<text x="24" y="36" font-size="13" fill="{t["dim"]}">'
+           f'<tspan fill="{t["text"]}" font-weight="600">{cal["totalContributions"]}</tspan> contributions in the last year</text>']
     month_seen = None
     for wi, w in enumerate(weeks):
         x = x0 + wi * (cell + gap)
@@ -106,26 +101,25 @@ def svg(user, t):
 
     # languages
     ly = y0 + 7 * (cell + gap) + 40
-    out.append(f'<text x="24" y="{ly}" font-size="14" font-weight="600" fill="{t["text"]}">Languages</text>'
-               f'<text x="104" y="{ly}" font-size="12" fill="{t["dim"]}">in my public repositories, by code size (notebooks not counted)</text>')
+    out.append(f'<text x="24" y="{ly}" font-size="11" font-weight="600" letter-spacing="1" fill="{t["dim"]}">LANGUAGES</text>'
+               f'<text x="{W - 24}" y="{ly}" text-anchor="end" font-size="13" fill="{t["dim"]}">public repositories, by code size</text>')
     bx, by, bw = 24, ly + 14, W - 48
     x = bx
     rows = languages(user)
-    out.append(f'<clipPath id="bar"><rect x="{bx}" y="{by}" width="{bw}" height="12" rx="6"/></clipPath><g clip-path="url(#bar)">')
+    out.append(f'<clipPath id="bar"><rect x="{bx}" y="{by}" width="{bw}" height="8" rx="4"/></clipPath><g clip-path="url(#bar)">')
     for name, share, _, colour in rows:
-        out.append(f'<rect x="{x:.1f}" y="{by}" width="{share * bw + 0.5:.1f}" height="12" fill="{colour}"/>')
+        out.append(f'<rect x="{x:.1f}" y="{by}" width="{share * bw + 0.5:.1f}" height="8" fill="{colour}"/>')
         x += share * bw
     out.append("</g>")
-    lx, lyy = bx, by + 38
+    lx, lyy = bx, by + 32
     for name, share, n, colour in rows:
-        label = f"{name} {share * 100:.0f}%" + (f" · {n} repo{'s' if n > 1 else ''}" if n else "")
-        w = len(label) * 6.9 + 34
+        label = f"{name} {share * 100:.0f}%"
+        w = len(label) * 7.2 + 40
         if lx + w > W - 24:
             lx, lyy = bx, lyy + 24
         out.append(f'<circle cx="{lx + 6}" cy="{lyy - 4}" r="5" fill="{colour}"/>'
                    f'<text x="{lx + 17}" y="{lyy}" font-size="12.5" fill="{t["text"]}">{escape(name)} '
-                   f'<tspan fill="{t["dim"]}">{share * 100:.0f}%' + (f" · {n} repo{'s' if n > 1 else ''}" if n else "")
-                   + '</tspan></text>')
+                   f'<tspan fill="{t["dim"]}">{share * 100:.0f}%</tspan></text>')
         lx += w
     H = int(lyy + 22)
     body = "".join(out).replace("{H}", str(H - 1))
