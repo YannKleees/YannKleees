@@ -70,6 +70,19 @@ Reproduction of HyperImpute on three UCI datasets, with a check against an older
 <br>
 </details>
 
+<details>
+<summary><code>r-projects/</code> &nbsp;machine learning in R</summary>
+<br>
+
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/flow/r-projects_dark.svg"><img src="assets/flow/r-projects_light.svg" width="100%" alt="How r-projects works: machine learning in R"></picture>
+
+Two Quarto reports from the Utrecht machine learning course: predicting exam scores with cross-validated models and a tuned random forest, and clustering 5,000 IMDB reviews with K-means, a Gaussian mixture model and LDA. Group work, with each person's part listed.
+
+<a href="https://github.com/YannKleees/r-projects"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/buttons/repo_dark.svg"><img src="assets/buttons/repo_light.svg" alt="View the r-projects repository"></picture></a>
+
+<br>
+</details>
+
 ### Software
 
 <details>

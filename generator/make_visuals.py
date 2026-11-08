@@ -38,6 +38,8 @@ FLOWS = {
                ("Save", "tagged MP3 or FLAC")],
     "wichtel": [("Add", "three or more names"), ("Draw", "one gift circle"), ("Share", "one link per person"),
                 ("Reveal", "own match only")],
+    "r-projects": [("Data", "students, IMDB reviews"), ("Represent", "features, TF-IDF"),
+                   ("Model", "RF, KNN, GMM, LDA"), ("Evaluate", "CV, silhouette, purity")],
     "datapluck": [("Select", "table, chart or PDF"), ("Extract", "DOM, chart data, pixels"),
                   ("Preview", "typed columns"), ("Export", "CSV, LaTeX, pandas, R")],
 }
