@@ -4,7 +4,7 @@ Everything visual on the profile is drawn by these scripts.
 
 | Script | Draws |
 |---|---|
-| `make_header.py` | the ASCII portrait header (`assets/header_*.svg`) and its window bar, from `photo.jpg` and `profile.json` |
+| `make_header.py` | the ASCII portrait header (`assets/header_body_*.svg`) and its window bar, from `photo.jpg` and `profile.json` |
 | `make_visuals.py` | the "how it works" diagram of each project (`assets/diagrams/`) and the link buttons (`assets/links/`) |
 | `make_stats.py` | contributions in the last year and the languages of my public repositories (`assets/stats_*.svg`) |
 

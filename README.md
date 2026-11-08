@@ -1,6 +1,6 @@
 <details open>
 <summary><picture><source media="(prefers-color-scheme: dark)" srcset="assets/header_bar_dark.svg"><img src="assets/header_bar_light.svg" width="100%" alt="Terminal window bar: click to open or close"></picture></summary>
-<picture><source media="(prefers-color-scheme: dark)" srcset="assets/header_dark.svg"><img src="assets/header_light.svg" width="100%" alt="Yann Klees, data science student from Luxembourg. ASCII portrait with a short profile: MSc Applied Data Science at Utrecht University, BSc Data Science and AI at Maastricht University; NLP, computer vision and recommender systems; speaks Luxembourgish, English, French and German."></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/header_body_dark.svg"><img src="assets/header_body_light.svg" width="100%" alt="Yann Klees, data science student from Luxembourg. ASCII portrait with a short profile: MSc Applied Data Science at Utrecht University, BSc Data Science and AI at Maastricht University; NLP, computer vision and recommender systems; speaks Luxembourgish, English, French and German."></picture>
 </details>
 
 <p>

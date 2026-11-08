@@ -213,7 +213,7 @@ def main():
     args.out.mkdir(parents=True, exist_ok=True)
     for theme, t in THEMES.items():
         bar, body = header_svgs(grids[theme], rows, args.cols, cfg, t)
-        for name, svg in (("header_bar", bar), ("header", body)):
+        for name, svg in (("header_bar", bar), ("header_body", body)):
             path = args.out / f"{name}_{theme}.svg"
             path.write_text(svg, encoding="utf-8")
             print(f"wrote {path} ({path.stat().st_size // 1024} KB)")
