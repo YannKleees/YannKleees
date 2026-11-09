@@ -13,9 +13,10 @@
 
 <picture><source media="(prefers-color-scheme: dark)" srcset="assets/flow/tagging_dark.svg"><img src="assets/flow/tagging_light.svg" width="100%" alt="How tagging works: personal data redaction in four languages"></picture>
 
-Detects and redacts personal data in Luxembourgish, French, German and English text by combining a Rust rule engine with a GLiNER model. Recall on hard Luxembourgish names: 0.57 with rules alone, 0.91 combined.
+Detects and redacts personal data in Luxembourgish, French, German and English text by combining a Rust rule engine with a GLiNER model. Recall on hard Luxembourgish names: 0.57 with rules alone, 0.91 combined. The rules also run in the browser.
 
 <a href="https://github.com/YannKleees/tagging"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/buttons/repo_dark.svg"><img src="assets/buttons/repo_light.svg" alt="View the tagging repository"></picture></a>
+<a href="https://yannkleees.github.io/tagging/"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/buttons/demo_dark.svg"><img src="assets/buttons/demo_light.svg" alt="Try the tagging demo"></picture></a>
 
 <br>
 </details>
