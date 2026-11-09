@@ -199,7 +199,3 @@ Browser extension that copies any table or chart on a web page as CSV, LaTeX, pa
 
 <br>
 </details>
-
-### Activity
-
-<picture><source media="(prefers-color-scheme: dark)" srcset="assets/stats_dark.svg"><img src="assets/stats_light.svg" width="100%" alt="GitHub contributions in the last year and the languages of my public repositories"></picture>
