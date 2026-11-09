@@ -71,6 +71,19 @@ Reproduction of HyperImpute on three UCI datasets, with a check against an older
 </details>
 
 <details>
+<summary><code>fairbatch/</code> &nbsp;fair training with FairBatch (ICLR 2021)</summary>
+<br>
+
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/flow/fairbatch_dark.svg"><img src="assets/flow/fairbatch_light.svg" width="100%" alt="How fairbatch works: fair training with FairBatch (ICLR 2021)"></picture>
+
+Evaluation of FairBatch, a batch sampler that trains models towards demographic parity, on Adult, German and COMPAS over 10 seeds. It cut the parity gap on Adult from -0.19 to -0.03 and on COMPAS from -0.28 to 0.03, for 1.5 to 2.5 points of balanced accuracy. I also added a variant that updates the sampler from the measured gap.
+
+<a href="https://github.com/YannKleees/fairbatch"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/buttons/repo_dark.svg"><img src="assets/buttons/repo_light.svg" alt="View the fairbatch repository"></picture></a>
+
+<br>
+</details>
+
+<details>
 <summary><code>r-projects/</code> &nbsp;machine learning in R</summary>
 <br>
 
@@ -84,6 +97,19 @@ Two Quarto reports from the Utrecht machine learning course: predicting exam sco
 </details>
 
 ### Software
+
+<details>
+<summary><code>shortlist/</code> &nbsp;local job application tracker</summary>
+<br>
+
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/flow/shortlist_dark.svg"><img src="assets/flow/shortlist_light.svg" width="100%" alt="How shortlist works: local job application tracker"></picture>
+
+Keeps the jobs I apply to in one SQLite file: paste a link and it extracts the posting, scores the fit against my CV, tracks replies and follow-ups, and drafts motivation letters with a local model through Ollama. FastAPI, runs on your own machine.
+
+<a href="https://github.com/YannKleees/shortlist"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/buttons/repo_dark.svg"><img src="assets/buttons/repo_light.svg" alt="View the shortlist repository"></picture></a>
+
+<br>
+</details>
 
 <details>
 <summary><code>music-mystery/</code> &nbsp;adaptive music guessing game</summary>
