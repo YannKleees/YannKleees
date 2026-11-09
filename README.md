@@ -53,7 +53,7 @@ Web app that suggests PAR index scores from intraoral photos for a clinician to 
 
 <picture><source media="(prefers-color-scheme: dark)" srcset="assets/flow/team09_dark.svg"><img src="assets/flow/team09_light.svg" width="100%" alt="How team09 works: brain tumour classification from MRI"></picture>
 
-Desktop app around a four-class brain tumour classifier (glioma, meningioma, pituitary, no tumour): duplicate removal, resizing, normalisation, augmentation, a data dashboard and PyTorch CNN training, all in a PyQt5 interface. Group project; I wrote the code.
+Desktop app and research notebooks for a four-class brain tumour classifier (glioma, meningioma, pituitary, no tumour): duplicate removal, augmentation, a data dashboard, PyTorch CNN training with k-fold cross-validation and Grad-CAM inference in a PyQt5 interface, plus experiments on the BraTS 2023 data. Group project; I wrote most of the code.
 
 <a href="https://github.com/YannKleees/team09"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/buttons/repo_dark.svg"><img src="assets/buttons/repo_light.svg" alt="View the team09 repository"></picture></a>
 
@@ -80,6 +80,19 @@ Matches candidates with job vacancies through a two-tower model, plus item-to-it
 Group project on HotelRec, a large set of TripAdvisor hotel reviews. My teammates built matrix factorisation and a hybrid with sub-ratings; I built the content-based recommender, which describes each hotel by the TF-IDF of its reviews (stemming, bigrams) and falls back to popular hotels for new users.
 
 <a href="https://github.com/YannKleees/recsys"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/buttons/repo_dark.svg"><img src="assets/buttons/repo_light.svg" alt="View the recsys repository"></picture></a>
+
+<br>
+</details>
+
+<details>
+<summary><code>tak/</code> &nbsp;board game AI with a hand-written neural network</summary>
+<br>
+
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/flow/tak_dark.svg"><img src="assets/flow/tak_light.svg" width="100%" alt="How tak works: board game AI with a hand-written neural network"></picture>
+
+The board game Tak in Java with libGDX, playable against two AIs. One is minimax with alpha-beta pruning and a transposition table. The other uses the same search but scores positions with a neural network written from scratch, forward and backpropagation included, trained by self-play and against the heuristic agent. Group project; I wrote most of the code, including both AIs.
+
+<a href="https://github.com/YannKleees/tak"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/buttons/repo_dark.svg"><img src="assets/buttons/repo_light.svg" alt="View the tak repository"></picture></a>
 
 <br>
 </details>
