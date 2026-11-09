@@ -47,12 +47,38 @@ Web app that suggests PAR index scores from intraoral photos for a clinician to 
 </details>
 
 <details>
+<summary><code>team09/</code> &nbsp;brain tumour classification from MRI</summary>
+<br>
+
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/flow/team09_dark.svg"><img src="assets/flow/team09_light.svg" width="100%" alt="How team09 works: brain tumour classification from MRI"></picture>
+
+Desktop app around a four-class brain tumour classifier (glioma, meningioma, pituitary, no tumour): duplicate removal, resizing, normalisation, augmentation, a data dashboard and PyTorch CNN training, all in a PyQt5 interface. Group project; I wrote the code.
+
+<a href="https://github.com/YannKleees/team09"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/buttons/repo_dark.svg"><img src="assets/buttons/repo_light.svg" alt="View the team09 repository"></picture></a>
+
+<br>
+</details>
+
+<details>
 <summary><code>job-recommender/</code> &nbsp;two-tower job recommendations</summary>
 <br>
 
 <picture><source media="(prefers-color-scheme: dark)" srcset="assets/flow/job-recommender_dark.svg"><img src="assets/flow/job-recommender_light.svg" width="100%" alt="How job-recommender works: two-tower job recommendations"></picture>
 
 Matches candidates with job vacancies through a two-tower model, plus item-to-item retrieval for similar jobs. Group project; I built most of the engine. Private repository, code on request.
+
+<br>
+</details>
+
+<details>
+<summary><code>recsys/</code> &nbsp;hotel recommendations on HotelRec</summary>
+<br>
+
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/flow/recsys_dark.svg"><img src="assets/flow/recsys_light.svg" width="100%" alt="How recsys works: hotel recommendations on HotelRec"></picture>
+
+Group project on HotelRec, a large set of TripAdvisor hotel reviews. My teammates built matrix factorisation and a hybrid with sub-ratings; I built the content-based recommender, which describes each hotel by the TF-IDF of its reviews (stemming, bigrams) and falls back to popular hotels for new users.
+
+<a href="https://github.com/YannKleees/recsys"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/buttons/repo_dark.svg"><img src="assets/buttons/repo_light.svg" alt="View the recsys repository"></picture></a>
 
 <br>
 </details>
