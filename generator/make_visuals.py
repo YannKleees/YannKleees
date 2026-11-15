@@ -1,61 +1,37 @@
-"""Draw a simple "how it works" flow for each project and the link buttons, in light and dark versions.
+"""Draw the pictures of the profile from generator/projects.json, in light and dark versions.
 
     python generator/make_visuals.py
 
-Writes assets/flow/<project>_<theme>.svg and assets/buttons/<name>_<theme>.svg.
+Writes, per project, the "how it works" flow (assets/flow/) and the tech stack with icons
+(assets/stack/), plus the timeline of all projects (assets/timeline_*.svg) and the link buttons
+(assets/buttons/). The icons in icons.json are from Simple Icons (CC0).
 """
+import json
 from html import escape
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent.parent
+HERE = Path(__file__).resolve().parent
+ROOT = HERE.parent
 SANS = "-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans',Helvetica,Arial,sans-serif"
 
 THEMES = {
-    "light": dict(panel="#f6f8fa", border="#d8dee4", text="#1f2328", dim="#656d76", accent="#0969da"),
-    "dark": dict(panel="#161b22", border="#30363d", text="#e6edf3", dim="#8d96a0", accent="#4493f8"),
+    "light": dict(page="#ffffff", panel="#f6f8fa", border="#d8dee4", text="#1f2328", dim="#656d76", accent="#0969da", soft="#8c959f"),
+    "dark": dict(page="#0d1117", panel="#161b22", border="#30363d", text="#e6edf3", dim="#8d96a0", accent="#4493f8", soft="#6e7681"),
 }
 
-# Each step is (name, what it does); a list of steps runs side by side.
-FLOWS = {
-    "tagging": [("Input", "LU, FR, DE, EN text"), ("Rules", "Rust, gazetteers"),
-                ("Model", "GLiNER, context"), ("Merge", "resolves overlaps"),
-                ("Output", "placeholders")],
-    "pii-anonymisation-thesis": [("Generate", "synthetic DOCX, PDF"), ("Zone", "cover pages, tables"),
-                                 ("Detect", "regex, GLiNER, OCR"), ("Redact", "true removal"),
-                                 ("Attack", "re-identification")],
-    "orthodontic-par": [("Capture", "5 intraoral photos"), ("Detect", "YOLO11s, 10 classes"),
-                        ("Map", "findings to PAR"), ("Review", "clinician edits"),
-                        ("Report", "PAR over visits")],
-    "team09": [("Clean", "dedupe, resize"), ("Augment", "rotation, gamma"), ("Inspect", "dashboard, compare"),
-               ("Train", "CNN, k-fold CV"), ("Explain", "Grad-CAM")],
-    "recsys": [("Data", "HotelRec reviews"), ("Filter", "active users, hotels"), ("Represent", "TF-IDF of reviews"),
-               ("Rank", "top 10 per user"), ("Evaluate", "HitRate, NDCG@10")],
-    "tak": [("Play", "libGDX, 2 players"), ("Search", "minimax, alpha-beta"), ("Score", "heuristic or net"),
-            ("Train", "self-play, backprop"), ("Compare", "AI vs AI matches")],
-    "job-recommender": [[("Candidate", "encoder tower"), ("Job", "encoder tower")], ("Embed", "shared vector space"),
-                        ("Retrieve", "nearest neighbours"), ("Rank", "top-k per candidate")],
-    "hyperreimpute": [("Data", "3 UCI datasets"), ("Mask", "MCAR, MAR, MNAR"), ("Impute", "HyperImpute"),
-                      ("Compare", "vs fixed CatBoost"), ("Test", "RMSE, paired tests")],
-    "fairbatch": [("Data", "3 benchmark datasets"), ("Baseline", "logistic regression"),
-                  ("Resample", "FairBatch batches"), ("Tune", "alpha on validation"), ("Measure", "DP gap, 10 seeds")],
-    "shortlist": [("Save", "job link or text"), ("Extract", "rules or an LLM"), ("Score", "fit against my CV"),
-                  ("Track", "replies, follow-ups"), ("Write", "letters via Ollama")],
-    "music-mystery": [("Play", "30 s Deezer snippet"), ("Guess", "artist, title, year"), ("Rate", "Elo per mode"),
-                      ("Adapt", "hints, snippet length")],
-    "pizza-ordering-system": [("Order", "customer app"), ("Store", "MySQL, 16 tables"), ("Prepare", "staff app"),
-                              ("Deliver", "by postal area"), ("Report", "earnings")],
-    "record": [("Listen", "any media player"), ("Read", "track info from Windows"), ("Split", "at the silence"),
-               ("Save", "tagged MP3 or FLAC")],
-    "wichtel": [("Add", "three or more names"), ("Draw", "one gift circle"), ("Share", "one link per person"),
-                ("Reveal", "own match only")],
-    "r-projects": [("Data", "students, IMDB reviews"), ("Represent", "features, TF-IDF"),
-                   ("Model", "RF, KNN, GMM, LDA"), ("Evaluate", "CV, silhouette, purity")],
-    "datapluck": [("Select", "table, chart or PDF"), ("Extract", "DOM, chart data, pixels"),
-                  ("Preview", "typed columns"), ("Export", "CSV, LaTeX, pandas, R")],
-}
+DATA = json.loads((HERE / "projects.json").read_text(encoding="utf-8"))
+PROJECTS = DATA["projects"]
+ICONS = json.loads((HERE / "icons.json").read_text(encoding="utf-8"))
 
 W, GAP, BOX_H, STACK_GAP = 880, 28, 72, 8
 
+
+def text_width(label, size=13.0):
+    wide, narrow = set("mwMW@%"), set("ijlrtf.,:;!|' -()")
+    return sum(0.80 if c in wide else 0.33 if c in narrow else 0.56 for c in label) * size
+
+
+# ------------------------------------------------------------------ flow: how a project works
 
 def step(x, y, w, h, num, name, detail, t):
     mid = y + h / 2
@@ -66,14 +42,16 @@ def step(x, y, w, h, num, name, detail, t):
 
 
 def flow(steps, t):
+    """Each step is [name, what it does]; a list of steps runs side by side."""
     n = len(steps)
-    stacked = any(isinstance(s, list) for s in steps)
+    is_group = lambda s: isinstance(s[0], list)
+    stacked = any(is_group(s) for s in steps)
     height = 2 * BOX_H + STACK_GAP if stacked else BOX_H
     bw = (W - (n - 1) * GAP) / n
     parts, num = [], 1
     for i, s in enumerate(steps):
         x = i * (bw + GAP)
-        group = s if isinstance(s, list) else [s]
+        group = s if is_group(s) else [s]
         h = (height - STACK_GAP * (len(group) - 1)) / len(group) if len(group) > 1 else BOX_H
         y = 0 if len(group) > 1 else (height - BOX_H) / 2
         for name, detail in group:
@@ -88,7 +66,86 @@ def flow(steps, t):
             f'font-family="{SANS}">\n{"".join(parts)}\n</svg>\n')
 
 
-ICONS = {
+# ------------------------------------------------------------------ stack: the technologies, with their icons
+
+def luminance(hex_colour):
+    r, g, b = (int(hex_colour[i:i + 2], 16) / 255 for i in (1, 3, 5))
+    return 0.2126 * r + 0.7152 * g + 0.0722 * b
+
+
+def stack_item(entry):
+    """'python' uses the icon and its usual name, 'huggingface:GLiNER' renames it, anything else is plain text."""
+    slug, _, label = entry.partition(":")
+    if slug in ICONS:
+        return ICONS[slug], label or ICONS[slug]["label"]
+    return None, entry
+
+
+def stack(entries, t, theme):
+    chip_h, pad, gap, x, y, parts = 34, 12, 8, 0, 0, []
+    for entry in entries:
+        icon, label = stack_item(entry)
+        w = pad * 2 + text_width(label, 13.5) + (24 if icon else 0)
+        if x and x + w > W:
+            x, y = 0, y + chip_h + gap
+        parts.append(f'<rect x="{x + 0.5}" y="{y + 0.5}" width="{w - 1:.1f}" height="{chip_h - 1}" rx="17" fill="{t["panel"]}" stroke="{t["border"]}"/>')
+        tx = x + pad
+        if icon:
+            colour = icon["hex"]
+            # a brand colour that would vanish on this background is drawn in the text colour instead
+            if (theme == "dark" and luminance(colour) < 0.22) or (theme == "light" and luminance(colour) > 0.75):
+                colour = t["text"]
+            parts.append(f'<path transform="translate({tx:.1f},{y + 9}) scale(0.667)" fill="{colour}" d="{icon["path"]}"/>')
+            tx += 24
+        parts.append(f'<text x="{tx:.1f}" y="{y + 21.5}" font-size="13.5" font-weight="500" fill="{t["text"]}">{escape(label)}</text>')
+        x += w + gap
+    height = y + chip_h
+    return (f'<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{height}" viewBox="0 0 {W} {height}" '
+            f'font-family="{SANS}">\n{"".join(parts)}\n</svg>\n')
+
+
+# ------------------------------------------------------------------ timeline: when each project was made
+
+def month_index(ym, origin):
+    year, month = map(int, ym.split("-"))
+    return (year - origin[0]) * 12 + month - origin[1]
+
+
+def timeline(t):
+    projects = sorted(PROJECTS, key=lambda p: p["spans"][0][0])
+    first = min(s[0] for p in projects for s in p["spans"])
+    last = max(s[1] for p in projects for s in p["spans"])
+    origin = (int(first[:4]), 1)
+    months = (int(last[:4]) - origin[0] + 1) * 12
+    label_w, row_h, top = 190, 24, 30
+    mw = (W - label_w) / months
+    height = top + row_h * len(projects) + 30
+    parts = []
+    for m in range(0, months + 1, 3):
+        x = label_w + m * mw
+        year_start = m % 12 == 0
+        parts.append(f'<path d="M{x:.1f} {top - 6}V{height - 26}" stroke="{t["border"]}" stroke-width="{1.4 if year_start else 0.7}"/>')
+        if year_start and m < months:
+            parts.append(f'<text x="{x + 6:.1f}" y="14" font-size="13" font-weight="600" fill="{t["text"]}">{origin[0] + m // 12}</text>')
+    colours = {"ml": t["accent"], "software": t["soft"]}
+    for i, p in enumerate(projects):
+        y = top + i * row_h
+        parts.append(f'<text x="{label_w - 12}" y="{y + 15}" font-size="12.5" text-anchor="end" fill="{t["text"]}">{escape(p["name"])}</text>')
+        for start, end in p["spans"]:
+            a, b = month_index(start, origin), month_index(end, origin) + 1
+            parts.append(f'<rect x="{label_w + a * mw + 1.5:.1f}" y="{y + 5}" width="{(b - a) * mw - 3:.1f}" height="13" rx="6.5" fill="{colours[p["kind"]]}"/>')
+    ly = height - 8
+    parts.append(f'<rect x="{label_w}" y="{ly - 10}" width="22" height="11" rx="5.5" fill="{colours["ml"]}"/>'
+                 f'<text x="{label_w + 30}" y="{ly}" font-size="12" fill="{t["dim"]}">Data science and machine learning</text>'
+                 f'<rect x="{label_w + 250}" y="{ly - 10}" width="22" height="11" rx="5.5" fill="{colours["software"]}"/>'
+                 f'<text x="{label_w + 280}" y="{ly}" font-size="12" fill="{t["dim"]}">Software</text>')
+    return (f'<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{height}" viewBox="0 0 {W} {height}" '
+            f'font-family="{SANS}">\n{"".join(parts)}\n</svg>\n')
+
+
+# ------------------------------------------------------------------ buttons
+
+BUTTON_ICONS = {
     "linkedin": '<path transform="translate({x},{y}) scale(0.58)" fill="{c}" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.850 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.140 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>',
     "mail": '<g transform="translate({x},{y})" fill="none" stroke="{c}" stroke-width="1.5"><rect x="0.75" y="1.75" width="12.5" height="10.5" rx="2"/><path d="M1.5 3.5l5.5 4.2 5.5-4.2"/></g>',
     "demo": '<g transform="translate({x},{y})" fill="none" stroke="{c}" stroke-width="1.5" stroke-linejoin="round"><circle cx="7" cy="7" r="6.25"/><path d="M5.5 4.6v4.8l4-2.4z"/></g>',
@@ -101,7 +158,7 @@ def button(label, icon, t):
     w = int(sum(10.5 if c in wide else 4.2 if c in narrow else 7.0 for c in label) + 66)
     return f'''<svg xmlns="http://www.w3.org/2000/svg" width="{w}" height="32" viewBox="0 0 {w} 32" font-family="{SANS}">
 <rect x="0.5" y="0.5" width="{w - 1}" height="31" rx="8" fill="{t["panel"]}" stroke="{t["border"]}"/>
-{ICONS[icon].format(x=13, y=9, c=t["text"])}
+{BUTTON_ICONS[icon].format(x=13, y=9, c=t["text"])}
 <text x="35" y="20.5" font-size="13" font-weight="500" fill="{t["text"]}">{escape(label)}</text>
 <text x="{w - 16}" y="20.5" font-size="12" text-anchor="middle" fill="{t["dim"]}">↗</text>
 </svg>
@@ -113,14 +170,22 @@ BUTTONS = {"linkedin": ("LinkedIn", "linkedin"), "email": ("yannklees@gmail.com"
 
 
 def main():
-    for folder in ("flow", "buttons"):
-        (ROOT / "assets" / folder).mkdir(parents=True, exist_ok=True)
+    assets = ROOT / "assets"
+    for folder in ("flow", "stack", "buttons"):
+        (assets / folder).mkdir(parents=True, exist_ok=True)
+    wanted = {f"{p['slug']}_{theme}.svg" for p in PROJECTS for theme in THEMES}
+    for folder in ("flow", "stack"):
+        for old in (assets / folder).glob("*.svg"):
+            if old.name not in wanted:
+                old.unlink()
     for theme, t in THEMES.items():
-        for name, steps in FLOWS.items():
-            (ROOT / "assets" / "flow" / f"{name}_{theme}.svg").write_text(flow(steps, t), encoding="utf-8")
+        for p in PROJECTS:
+            (assets / "flow" / f"{p['slug']}_{theme}.svg").write_text(flow(p["flow"], t), encoding="utf-8")
+            (assets / "stack" / f"{p['slug']}_{theme}.svg").write_text(stack(p["stack"], t, theme), encoding="utf-8")
+        (assets / f"timeline_{theme}.svg").write_text(timeline(t), encoding="utf-8")
         for name, (label, icon) in BUTTONS.items():
-            (ROOT / "assets" / "buttons" / f"{name}_{theme}.svg").write_text(button(label, icon, t), encoding="utf-8")
-    print("flows and buttons written to assets/")
+            (assets / "buttons" / f"{name}_{theme}.svg").write_text(button(label, icon, t), encoding="utf-8")
+    print(f"{len(PROJECTS)} projects: flows, stacks, timeline and buttons written to assets/")
 
 
 if __name__ == "__main__":

@@ -1,0 +1,181 @@
+{
+  "years": {
+    "2026": "BSc thesis in Maastricht, then the first months of the MSc in Utrecht.",
+    "2025": "Second and third year of the BSc in Maastricht, and a research internship in the summer.",
+    "2024": "Second year of the BSc in Maastricht."
+  },
+  "projects": [
+    {
+      "slug": "shortlist", "name": "shortlist", "kind": "software",
+      "tagline": "Sift, a job search app that scores postings against my CV",
+      "when": "Nov 2026", "spans": [["2026-11", "2026-11"]], "context": "Personal project",
+      "stack": ["python", "fastapi", "sqlite", "javascript", "docker", "ollama"],
+      "flow": [["Find", "seven job sites"], ["Read", "rules or an LLM"], ["Score", "fit against my CV"], ["Track", "replies, interviews"], ["Write", "letters, CV check"]],
+      "text": "Sift (the repository keeps its old name, shortlist) searches seven job sites, reads each posting and shows how well it fits my CV, with the reasons. It tracks applications, replies and interviews, and drafts motivation letters with Claude or a local Ollama model. Built for my own job search, with a lot of AI assistance.",
+      "repo": "https://github.com/YannKleees/shortlist",
+      "shot": {"url": "https://raw.githubusercontent.com/YannKleees/shortlist/main/docs/job.jpg", "alt": "Sift showing a job with its fit score and the reasons", "width": "440"}
+    },
+    {
+      "slug": "fairbatch", "name": "fairbatch", "kind": "ml",
+      "tagline": "fair training with FairBatch (ICLR 2021)",
+      "when": "Nov 2026", "spans": [["2026-11", "2026-11"]], "context": "MSc course work, Utrecht",
+      "stack": ["python", "pytorch", "jupyter"],
+      "flow": [["Data", "3 benchmark datasets"], ["Baseline", "logistic regression"], ["Resample", "FairBatch batches"], ["Tune", "alpha on validation"], ["Measure", "DP gap, 10 seeds"]],
+      "text": "Evaluation of FairBatch, a batch sampler that trains models towards demographic parity, on Adult, German and COMPAS over 10 seeds. It cut the parity gap on Adult from -0.19 to -0.03 and on COMPAS from -0.28 to 0.03, for 1.5 to 2.5 points of balanced accuracy. I also added a variant that updates the sampler from the measured gap.",
+      "repo": "https://github.com/YannKleees/fairbatch"
+    },
+    {
+      "slug": "orthodontic-par", "name": "orthodontic-par", "kind": "ml",
+      "tagline": "PAR index suggestions from dental photos",
+      "when": "Nov 2026", "spans": [["2026-11", "2026-11"]], "context": "Rebuild of my 2025 internship work on public data",
+      "stack": ["python", "ultralytics:YOLO11", "pytorch", "typescript", "react", "nodedotjs"],
+      "flow": [["Capture", "5 intraoral photos"], ["Detect", "YOLO11s, 10 classes"], ["Map", "findings to PAR"], ["Review", "clinician edits"], ["Report", "PAR over visits"]],
+      "text": "Web app that suggests PAR index scores from intraoral photos for a clinician to review. The YOLO11s detector reaches mAP50 0.697 on the OMNI test set, above the dataset paper's best result (0.664).",
+      "repo": "https://github.com/YannKleees/orthodontic-par"
+    },
+    {
+      "slug": "r-projects", "name": "r-projects", "kind": "ml",
+      "tagline": "machine learning in R",
+      "when": "Sep – Nov 2026", "spans": [["2026-09", "2026-11"]], "context": "MSc course work, Utrecht (group)",
+      "stack": ["r", "quarto", "githubpages"],
+      "flow": [["Data", "students, IMDB reviews"], ["Represent", "features, TF-IDF"], ["Model", "RF, KNN, GMM, LDA"], ["Evaluate", "CV, silhouette, purity"]],
+      "text": "Two Quarto reports from the Utrecht machine learning course: predicting exam scores with cross-validated models and a tuned random forest, and clustering 5,000 IMDB reviews with K-means, a Gaussian mixture model and LDA. Group work, with each person's part listed.",
+      "repo": "https://github.com/YannKleees/r-projects", "demo": "https://yannkleees.github.io/r-projects/"
+    },
+    {
+      "slug": "wichtel", "name": "wichtel", "kind": "software",
+      "tagline": "Secret Santa draw",
+      "when": "Nov 2026", "spans": [["2026-11", "2026-11"]], "context": "Personal project",
+      "stack": ["javascript", "html5", "css", "githubpages"],
+      "flow": [["Add", "three or more names"], ["Draw", "one gift circle"], ["Share", "one link per person"], ["Reveal", "own match only"]],
+      "text": "Secret Santa draw as a static site. Everyone gets a private link that shows only their own match.",
+      "repo": "https://github.com/YannKleees/wichtel", "demo": "https://yannkleees.github.io/wichtel/"
+    },
+    {
+      "slug": "tagging", "name": "tagging", "kind": "ml",
+      "tagline": "personal data redaction in four languages",
+      "when": "Oct – Nov 2026", "spans": [["2026-10", "2026-11"]], "context": "Personal project",
+      "stack": ["rust", "python", "huggingface:GLiNER", "webassembly"],
+      "flow": [["Input", "LU, FR, DE, EN text"], ["Rules", "Rust, gazetteers"], ["Model", "GLiNER, context"], ["Merge", "resolves overlaps"], ["Output", "placeholders"]],
+      "text": "Detects and redacts personal data in Luxembourgish, French, German and English text by combining a Rust rule engine with a GLiNER model. Recall on hard Luxembourgish names: 0.57 with rules alone, 0.91 combined. The rules also run in the browser.",
+      "repo": "https://github.com/YannKleees/tagging", "demo": "https://yannkleees.github.io/tagging/"
+    },
+    {
+      "slug": "hyperreimpute", "name": "hyperreimpute", "kind": "ml",
+      "tagline": "reproduction of an ICML 2022 paper",
+      "when": "Oct – Nov 2026", "spans": [["2026-10", "2026-11"]], "context": "MSc course work, Utrecht",
+      "stack": ["python", "jupyter", "HyperImpute", "CatBoost"],
+      "flow": [["Data", "3 UCI datasets"], ["Mask", "MCAR, MAR, MNAR"], ["Impute", "HyperImpute"], ["Compare", "vs fixed CatBoost"], ["Test", "RMSE, paired tests"]],
+      "text": "Reproduction of HyperImpute on three UCI datasets, with a check against an older library version and tests of the method's limits. A CatBoost baseline with fixed settings beat it.",
+      "repo": "https://github.com/YannKleees/hyperreimpute"
+    },
+    {
+      "slug": "record", "name": "record", "kind": "software",
+      "tagline": "records what your PC plays",
+      "when": "Oct 2026", "spans": [["2026-10", "2026-10"]], "context": "Personal project",
+      "stack": ["python", "pywebview", "Windows audio (WASAPI)"],
+      "flow": [["Listen", "any media player"], ["Read", "track info from Windows"], ["Split", "at the silence"], ["Save", "tagged MP3 or FLAC"]],
+      "text": "Windows app that records whatever your PC plays and saves each track as a tagged MP3 or FLAC file, cut at the silence between tracks.",
+      "repo": "https://github.com/YannKleees/record"
+    },
+    {
+      "slug": "datapluck", "name": "datapluck", "kind": "software",
+      "tagline": "copy tables and charts as data",
+      "when": "Oct 2026", "spans": [["2026-10", "2026-10"]], "context": "Personal project, in progress",
+      "stack": ["typescript", "Browser extension"],
+      "flow": [["Select", "table, chart or PDF"], ["Extract", "DOM, chart data, pixels"], ["Preview", "typed columns"], ["Export", "CSV, LaTeX, pandas, R"]],
+      "text": "Browser extension that copies any table or chart on a web page as CSV, LaTeX, pandas or R code. Private repository, in progress."
+    },
+    {
+      "slug": "pii-anonymisation-thesis", "name": "pii-anonymisation-thesis", "kind": "ml",
+      "tagline": "BSc thesis on document anonymisation",
+      "when": "Feb – Jun 2026", "spans": [["2026-02", "2026-06"]], "context": "BSc thesis, Maastricht",
+      "stack": ["python", "jupyter", "huggingface:GLiNER", "OCR"],
+      "flow": [["Generate", "synthetic DOCX, PDF"], ["Zone", "cover pages, tables"], ["Detect", "regex, GLiNER, OCR"], ["Redact", "true removal"], ["Attack", "re-identification"]],
+      "text": "Layout-aware anonymisation of student documents, tested with a re-identification attack. Recall 0.998 on 500 synthetic documents; the signals an attacker can use drop from 17.3 to 0.16 per document.",
+      "repo": "https://github.com/YannKleees/pii-anonymisation-thesis"
+    },
+    {
+      "slug": "fridgy", "name": "fridgy", "kind": "software",
+      "tagline": "scan a receipt, track the pantry, get recipes",
+      "when": "Feb 2026", "spans": [["2026-02", "2026-02"]], "context": "Weekend team project",
+      "stack": ["react", "typescript", "vite", "tailwindcss", "supabase", "googlegemini"],
+      "flow": [["Scan", "photo of a receipt"], ["Read", "vision model, two passes"], ["Store", "pantry in Postgres"], ["Suggest", "recipes from the pantry"], ["Shop", "missing ingredients"]],
+      "text": "Mobile-first pantry app from a weekend team project. You photograph a grocery receipt, a vision model reads the items into your pantry, and a recipe chat suggests meals from what you already have. Missing ingredients go to a shopping list. Prototyped in Lovable; the repository is the cleaned-up code.",
+      "repo": "https://github.com/YannKleees/fridgy",
+      "shot": {"url": "https://raw.githubusercontent.com/YannKleees/fridgy/main/docs/login.jpg", "alt": "Fridgy sign-in screen on a phone", "width": "260"}
+    },
+    {
+      "slug": "job-recommender", "name": "job-recommender", "kind": "ml",
+      "tagline": "two-tower job recommendations",
+      "when": "Sep 2025 – Jan 2026", "spans": [["2025-09", "2026-01"]], "context": "BSc group project, Maastricht",
+      "stack": ["python", "Two-tower model"],
+      "flow": [[["Candidate", "encoder tower"], ["Job", "encoder tower"]], ["Embed", "shared vector space"], ["Retrieve", "nearest neighbours"], ["Rank", "top-k per candidate"]],
+      "text": "Matches candidates with job vacancies through a two-tower model, plus item-to-item retrieval for similar jobs. Group project; I built most of the engine. Private repository, code on request."
+    },
+    {
+      "slug": "recsys", "name": "recsys", "kind": "ml",
+      "tagline": "hotel recommendations on HotelRec",
+      "when": "Nov – Dec 2025", "spans": [["2025-11", "2025-12"]], "context": "BSc group project, Maastricht",
+      "stack": ["python", "jupyter", "TF-IDF", "Matrix factorisation"],
+      "flow": [["Data", "HotelRec reviews"], ["Filter", "active users, hotels"], ["Represent", "TF-IDF of reviews"], ["Rank", "top 10 per user"], ["Evaluate", "HitRate, NDCG@10"]],
+      "text": "Group project on HotelRec, a large set of TripAdvisor hotel reviews. My teammates built matrix factorisation and a hybrid with sub-ratings; I built the content-based recommender, which describes each hotel by the TF-IDF of its reviews (stemming, bigrams) and falls back to popular hotels for new users.",
+      "repo": "https://github.com/YannKleees/recsys"
+    },
+    {
+      "slug": "matlab-simulation", "name": "matlab-simulation", "kind": "ml",
+      "tagline": "random numbers, ECG cleaning and a queue simulation in MATLAB",
+      "when": "Nov 2025", "spans": [["2025-11", "2025-11"]], "context": "BSc individual assignment, Maastricht",
+      "stack": ["MATLAB", "No toolboxes"],
+      "flow": [["Generate", "PCG random numbers"], ["Test", "poker test, chi-square"], ["Clean", "ECG RR intervals"], ["Simulate", "M/M/3 plant"], ["Compare", "20 replications"]],
+      "text": "Individual assignment in plain MATLAB, without toolboxes: a permuted congruential random number generator checked with a poker test, outlier cleaning of ECG RR intervals with five views of before and after, and a discrete event simulation of a three-machine plant with maintenance.",
+      "repo": "https://github.com/YannKleees/matlab-simulation"
+    },
+    {
+      "slug": "yolo-rcnn-pipeline", "name": "yolo-rcnn-pipeline", "kind": "ml",
+      "tagline": "detector training for dental images",
+      "when": "Summer 2025", "spans": [["2025-06", "2025-08"]], "context": "Research internship",
+      "stack": ["python", "pytorch", "ultralytics:YOLO", "Faster R-CNN"],
+      "flow": [["Label", "dental images"], ["Train", "YOLO, Faster R-CNN"], ["Compare", "detectors"], ["Hand over", "to the PAR app"]],
+      "text": "Training pipeline from my orthodontics internship: YOLO and Faster R-CNN detectors for dental images. It was the starting point for orthodontic-par, which replaces it.",
+      "repo": "https://github.com/YannKleees/yolo-rcnn-pipeline"
+    },
+    {
+      "slug": "team09", "name": "team09", "kind": "ml",
+      "tagline": "brain tumour classification from MRI",
+      "when": "Mar – Jun 2025", "spans": [["2025-03", "2025-06"]], "context": "BSc group project, Maastricht",
+      "stack": ["python", "pytorch", "qt", "jupyter"],
+      "flow": [["Clean", "dedupe, resize"], ["Augment", "rotation, gamma"], ["Inspect", "dashboard, compare"], ["Train", "CNN, k-fold CV"], ["Explain", "Grad-CAM"]],
+      "text": "Desktop app and research notebooks for a four-class brain tumour classifier (glioma, meningioma, pituitary, no tumour): duplicate removal, augmentation, a data dashboard, PyTorch CNN training with k-fold cross-validation and Grad-CAM inference in a PyQt5 interface, plus experiments on the BraTS 2023 data. Group project; I wrote most of the code.",
+      "repo": "https://github.com/YannKleees/team09"
+    },
+    {
+      "slug": "music-mystery", "name": "music-mystery", "kind": "software",
+      "tagline": "adaptive music guessing game",
+      "when": "Feb – Mar 2025", "spans": [["2025-02", "2025-03"]], "context": "BSc group project (HCI), Maastricht",
+      "stack": ["python", "flask", "sqlite", "javascript"],
+      "flow": [["Play", "30 s Deezer snippet"], ["Guess", "artist, title, year"], ["Rate", "Elo per mode"], ["Adapt", "hints, snippet length"]],
+      "text": "Music guessing game built for an HCI user study, in a random and a personalised version. The personalised one keeps an Elo rating per mode and adapts hints and snippet length to the player.",
+      "repo": "https://github.com/YannKleees/music-mystery"
+    },
+    {
+      "slug": "pizza-ordering-system", "name": "pizza-ordering-system", "kind": "software",
+      "tagline": "pizza shop on MySQL, desktop and web",
+      "when": "Oct 2024, web interface Nov 2026", "spans": [["2024-10", "2024-10"], ["2026-11", "2026-11"]], "context": "BSc Databases course, Maastricht",
+      "stack": ["python", "mysql", "Tkinter", "fastapi", "javascript", "leaflet"],
+      "flow": [["Order", "customer app"], ["Store", "MySQL, 16 tables"], ["Prepare", "staff queue"], ["Deliver", "courier per postal area"], ["Report", "earnings"]],
+      "text": "Pizza shop on a 16-table MySQL schema with a customer and a staff app: orders, discount codes, a loyalty count, deliveries by postal area and earnings reports. Built as desktop apps for the Databases course in 2024. In 2026 I added a web interface on the same database and ordering logic, with a live order queue next to a street map; that web layer was written with AI assistance.",
+      "repo": "https://github.com/YannKleees/pizza-ordering-system",
+      "shot": {"url": "https://raw.githubusercontent.com/YannKleees/pizza-ordering-system/master/docs/screenshots/new-customer.png", "alt": "The web shop of the pizza ordering system", "width": "100%"}
+    },
+    {
+      "slug": "tak", "name": "tak", "kind": "ml",
+      "tagline": "board game AI with a hand-written neural network",
+      "when": "Sep 2024 – Jan 2025", "spans": [["2024-09", "2025-01"]], "context": "BSc group project, Maastricht",
+      "stack": ["openjdk", "libGDX", "Minimax", "Neural network from scratch"],
+      "flow": [["Play", "libGDX, 2 players"], ["Search", "minimax, alpha-beta"], ["Score", "heuristic or net"], ["Train", "self-play, backprop"], ["Compare", "AI vs AI matches"]],
+      "text": "The board game Tak in Java with libGDX, playable against two AIs. One is minimax with alpha-beta pruning and a transposition table. The other uses the same search but scores positions with a neural network written from scratch, forward and backpropagation included, trained by self-play and against the heuristic agent. Group project; I wrote most of the code, including both AIs.",
+      "repo": "https://github.com/YannKleees/tak"
+    }
+  ]
+}

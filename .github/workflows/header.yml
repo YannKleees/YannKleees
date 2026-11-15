@@ -31,15 +31,16 @@ jobs:
       - name: Header from the photo
         if: github.event_name != 'schedule'
         run: python generator/make_header.py --photo "$(ls generator/photo.* | head -n 1)"
-      - name: Diagrams, buttons and stats
+      - name: Diagrams, tech stacks, timeline, stats and the README
         env:
           GITHUB_TOKEN: ${{ github.token }}
         run: |
           python generator/make_visuals.py
           python generator/make_stats.py
+          python generator/make_readme.py
       - name: Commit the new images
         run: |
           git config user.name "Yann"
           git config user.email "y.klees@student.maastrichtuniversity.nl"
-          git add assets
+          git add assets README.md
           git diff --cached --quiet || (git commit -m "Redraw profile images" && git push)
