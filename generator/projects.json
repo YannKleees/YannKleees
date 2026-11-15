@@ -1,12 +1,15 @@
 {
-  "years": {
-    "2026": "BSc thesis in Maastricht, then the first months of the MSc in Utrecht.",
-    "2025": "Second and third year of the BSc in Maastricht, and a research internship in the summer.",
-    "2024": "Second year of the BSc in Maastricht."
-  },
+  "areas": [
+    {"id": "vision", "title": "Computer vision", "learned": "Training image models and getting them into something a person can use: object detection with YOLO and Faster R-CNN, CNN classification with cross-validation, Grad-CAM to see what the model looks at."},
+    {"id": "nlp", "title": "Text and privacy", "learned": "Finding personal data in text and documents: rules next to a named entity model, four languages, and checking the result with a re-identification attack."},
+    {"id": "recsys", "title": "Recommender systems", "learned": "Ranking items for a user: content-based with TF-IDF, matrix factorisation, two-tower retrieval, measured with HitRate and NDCG."},
+    {"id": "methods", "title": "Machine learning methods and statistics", "learned": "How methods behave when you test them yourself: reproducing papers, fairness, paired tests over seeds, a neural network and game search without a library, simulation."},
+    {"id": "data", "title": "Databases and web apps", "learned": "Apps that sit on a database: schema design and SQL in MySQL, SQLite and Postgres, an API in between and an interface on top."},
+    {"id": "tools", "title": "Small tools", "learned": "Things I wanted to exist, built end to end and shipped."}
+  ],
   "projects": [
     {
-      "slug": "shortlist", "name": "shortlist", "kind": "software",
+      "slug": "shortlist", "name": "shortlist", "area": "data",
       "tagline": "Sift, a job search app that scores postings against my CV",
       "when": "Nov 2026", "spans": [["2026-11", "2026-11"]], "context": "Personal project",
       "stack": ["python", "fastapi", "sqlite", "javascript", "docker", "ollama"],
@@ -16,7 +19,7 @@
       "shot": {"url": "https://raw.githubusercontent.com/YannKleees/shortlist/main/docs/job.jpg", "alt": "Sift showing a job with its fit score and the reasons", "width": "440"}
     },
     {
-      "slug": "fairbatch", "name": "fairbatch", "kind": "ml",
+      "slug": "fairbatch", "name": "fairbatch", "area": "methods",
       "tagline": "fair training with FairBatch (ICLR 2021)",
       "when": "Nov 2026", "spans": [["2026-11", "2026-11"]], "context": "MSc course work, Utrecht",
       "stack": ["python", "pytorch", "jupyter"],
@@ -25,7 +28,7 @@
       "repo": "https://github.com/YannKleees/fairbatch"
     },
     {
-      "slug": "orthodontic-par", "name": "orthodontic-par", "kind": "ml",
+      "slug": "orthodontic-par", "name": "orthodontic-par", "area": "vision",
       "tagline": "PAR index suggestions from dental photos",
       "when": "Nov 2026", "spans": [["2026-11", "2026-11"]], "context": "Rebuild of my 2025 internship work on public data",
       "stack": ["python", "ultralytics:YOLO11", "pytorch", "typescript", "react", "nodedotjs"],
@@ -34,7 +37,7 @@
       "repo": "https://github.com/YannKleees/orthodontic-par"
     },
     {
-      "slug": "r-projects", "name": "r-projects", "kind": "ml",
+      "slug": "r-projects", "name": "r-projects", "area": "methods",
       "tagline": "machine learning in R",
       "when": "Sep – Nov 2026", "spans": [["2026-09", "2026-11"]], "context": "MSc course work, Utrecht (group)",
       "stack": ["r", "quarto", "githubpages"],
@@ -43,7 +46,7 @@
       "repo": "https://github.com/YannKleees/r-projects", "demo": "https://yannkleees.github.io/r-projects/"
     },
     {
-      "slug": "wichtel", "name": "wichtel", "kind": "software",
+      "slug": "wichtel", "name": "wichtel", "area": "tools",
       "tagline": "Secret Santa draw",
       "when": "Nov 2026", "spans": [["2026-11", "2026-11"]], "context": "Personal project",
       "stack": ["javascript", "html5", "css", "githubpages"],
@@ -52,7 +55,7 @@
       "repo": "https://github.com/YannKleees/wichtel", "demo": "https://yannkleees.github.io/wichtel/"
     },
     {
-      "slug": "tagging", "name": "tagging", "kind": "ml",
+      "slug": "tagging", "name": "tagging", "area": "nlp",
       "tagline": "personal data redaction in four languages",
       "when": "Oct – Nov 2026", "spans": [["2026-10", "2026-11"]], "context": "Personal project",
       "stack": ["rust", "python", "huggingface:GLiNER", "webassembly"],
@@ -61,7 +64,7 @@
       "repo": "https://github.com/YannKleees/tagging", "demo": "https://yannkleees.github.io/tagging/"
     },
     {
-      "slug": "hyperreimpute", "name": "hyperreimpute", "kind": "ml",
+      "slug": "hyperreimpute", "name": "hyperreimpute", "area": "methods",
       "tagline": "reproduction of an ICML 2022 paper",
       "when": "Oct – Nov 2026", "spans": [["2026-10", "2026-11"]], "context": "MSc course work, Utrecht",
       "stack": ["python", "jupyter", "HyperImpute", "CatBoost"],
@@ -70,7 +73,7 @@
       "repo": "https://github.com/YannKleees/hyperreimpute"
     },
     {
-      "slug": "record", "name": "record", "kind": "software",
+      "slug": "record", "name": "record", "area": "tools",
       "tagline": "records what your PC plays",
       "when": "Oct 2026", "spans": [["2026-10", "2026-10"]], "context": "Personal project",
       "stack": ["python", "pywebview", "Windows audio (WASAPI)"],
@@ -79,7 +82,7 @@
       "repo": "https://github.com/YannKleees/record"
     },
     {
-      "slug": "datapluck", "name": "datapluck", "kind": "software",
+      "slug": "datapluck", "name": "datapluck", "area": "tools",
       "tagline": "copy tables and charts as data",
       "when": "Oct 2026", "spans": [["2026-10", "2026-10"]], "context": "Personal project, in progress",
       "stack": ["typescript", "Browser extension"],
@@ -87,7 +90,7 @@
       "text": "Browser extension that copies any table or chart on a web page as CSV, LaTeX, pandas or R code. Private repository, in progress."
     },
     {
-      "slug": "pii-anonymisation-thesis", "name": "pii-anonymisation-thesis", "kind": "ml",
+      "slug": "pii-anonymisation-thesis", "name": "pii-anonymisation-thesis", "area": "nlp",
       "tagline": "BSc thesis on document anonymisation",
       "when": "Feb – Jun 2026", "spans": [["2026-02", "2026-06"]], "context": "BSc thesis, Maastricht",
       "stack": ["python", "jupyter", "huggingface:GLiNER", "OCR"],
@@ -96,7 +99,7 @@
       "repo": "https://github.com/YannKleees/pii-anonymisation-thesis"
     },
     {
-      "slug": "fridgy", "name": "fridgy", "kind": "software",
+      "slug": "fridgy", "name": "fridgy", "area": "data",
       "tagline": "scan a receipt, track the pantry, get recipes",
       "when": "Feb 2026", "spans": [["2026-02", "2026-02"]], "context": "Weekend team project",
       "stack": ["react", "typescript", "vite", "tailwindcss", "supabase", "googlegemini"],
@@ -106,7 +109,7 @@
       "shot": {"url": "https://raw.githubusercontent.com/YannKleees/fridgy/main/docs/login.jpg", "alt": "Fridgy sign-in screen on a phone", "width": "260"}
     },
     {
-      "slug": "job-recommender", "name": "job-recommender", "kind": "ml",
+      "slug": "job-recommender", "name": "job-recommender", "area": "recsys",
       "tagline": "two-tower job recommendations",
       "when": "Sep 2025 – Jan 2026", "spans": [["2025-09", "2026-01"]], "context": "BSc group project, Maastricht",
       "stack": ["python", "Two-tower model"],
@@ -114,7 +117,7 @@
       "text": "Matches candidates with job vacancies through a two-tower model, plus item-to-item retrieval for similar jobs. Group project; I built most of the engine. Private repository, code on request."
     },
     {
-      "slug": "recsys", "name": "recsys", "kind": "ml",
+      "slug": "recsys", "name": "recsys", "area": "recsys",
       "tagline": "hotel recommendations on HotelRec",
       "when": "Nov – Dec 2025", "spans": [["2025-11", "2025-12"]], "context": "BSc group project, Maastricht",
       "stack": ["python", "jupyter", "TF-IDF", "Matrix factorisation"],
@@ -123,7 +126,7 @@
       "repo": "https://github.com/YannKleees/recsys"
     },
     {
-      "slug": "matlab-simulation", "name": "matlab-simulation", "kind": "ml",
+      "slug": "matlab-simulation", "name": "matlab-simulation", "area": "methods",
       "tagline": "random numbers, ECG cleaning and a queue simulation in MATLAB",
       "when": "Nov 2025", "spans": [["2025-11", "2025-11"]], "context": "BSc individual assignment, Maastricht",
       "stack": ["MATLAB", "No toolboxes"],
@@ -132,7 +135,7 @@
       "repo": "https://github.com/YannKleees/matlab-simulation"
     },
     {
-      "slug": "yolo-rcnn-pipeline", "name": "yolo-rcnn-pipeline", "kind": "ml",
+      "slug": "yolo-rcnn-pipeline", "name": "yolo-rcnn-pipeline", "area": "vision",
       "tagline": "detector training for dental images",
       "when": "Summer 2025", "spans": [["2025-06", "2025-08"]], "context": "Research internship",
       "stack": ["python", "pytorch", "ultralytics:YOLO", "Faster R-CNN"],
@@ -141,7 +144,7 @@
       "repo": "https://github.com/YannKleees/yolo-rcnn-pipeline"
     },
     {
-      "slug": "team09", "name": "team09", "kind": "ml",
+      "slug": "team09", "name": "team09", "area": "vision",
       "tagline": "brain tumour classification from MRI",
       "when": "Mar – Jun 2025", "spans": [["2025-03", "2025-06"]], "context": "BSc group project, Maastricht",
       "stack": ["python", "pytorch", "qt", "jupyter"],
@@ -150,7 +153,7 @@
       "repo": "https://github.com/YannKleees/team09"
     },
     {
-      "slug": "music-mystery", "name": "music-mystery", "kind": "software",
+      "slug": "music-mystery", "name": "music-mystery", "area": "data",
       "tagline": "adaptive music guessing game",
       "when": "Feb – Mar 2025", "spans": [["2025-02", "2025-03"]], "context": "BSc group project (HCI), Maastricht",
       "stack": ["python", "flask", "sqlite", "javascript"],
@@ -159,7 +162,7 @@
       "repo": "https://github.com/YannKleees/music-mystery"
     },
     {
-      "slug": "pizza-ordering-system", "name": "pizza-ordering-system", "kind": "software",
+      "slug": "pizza-ordering-system", "name": "pizza-ordering-system", "area": "data",
       "tagline": "pizza shop on MySQL, desktop and web",
       "when": "Oct 2024, web interface Nov 2026", "spans": [["2024-10", "2024-10"], ["2026-11", "2026-11"]], "context": "BSc Databases course, Maastricht",
       "stack": ["python", "mysql", "Tkinter", "fastapi", "javascript", "leaflet"],
@@ -169,7 +172,7 @@
       "shot": {"url": "https://raw.githubusercontent.com/YannKleees/pizza-ordering-system/master/docs/screenshots/new-customer.png", "alt": "The web shop of the pizza ordering system", "width": "100%"}
     },
     {
-      "slug": "tak", "name": "tak", "kind": "ml",
+      "slug": "tak", "name": "tak", "area": "methods",
       "tagline": "board game AI with a hand-written neural network",
       "when": "Sep 2024 – Jan 2025", "spans": [["2024-09", "2025-01"]], "context": "BSc group project, Maastricht",
       "stack": ["openjdk", "libGDX", "Minimax", "Neural network from scratch"],

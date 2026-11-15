@@ -3,8 +3,8 @@
 | Script | Draws |
 |---|---|
 | `make_header.py` | the profile card with the ASCII portrait (`assets/profile_*.svg`), from `photo.jpg` and `profile.json` |
-| `make_visuals.py` | per project the flow (`assets/flow/`) and the tech stack with icons (`assets/stack/`), the timeline (`assets/timeline_*.svg`) and the buttons (`assets/buttons/`) |
-| `make_readme.py` | `README.md` itself: the projects grouped by year, each as a folder that opens |
+| `make_visuals.py` | per project the flow (`assets/flow/`) and the tech stack with icons (`assets/stack/`) and the buttons (`assets/buttons/`) |
+| `make_readme.py` | `README.md` itself: the projects grouped by what I learned (`areas` in `projects.json`), each as a folder that opens |
 | `make_stats.py` | contributions in the last year and the languages of my public repositories (`assets/stats_*.svg`) |
 
 ```

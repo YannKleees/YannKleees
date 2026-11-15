@@ -3,8 +3,7 @@
     python generator/make_visuals.py
 
 Writes, per project, the "how it works" flow (assets/flow/) and the tech stack with icons
-(assets/stack/), plus the timeline of all projects (assets/timeline_*.svg) and the link buttons
-(assets/buttons/). The icons in icons.json are from Simple Icons (CC0).
+(assets/stack/), plus the link buttons (assets/buttons/). The icons in icons.json are from Simple Icons (CC0).
 """
 import json
 from html import escape
@@ -104,45 +103,6 @@ def stack(entries, t, theme):
             f'font-family="{SANS}">\n{"".join(parts)}\n</svg>\n')
 
 
-# ------------------------------------------------------------------ timeline: when each project was made
-
-def month_index(ym, origin):
-    year, month = map(int, ym.split("-"))
-    return (year - origin[0]) * 12 + month - origin[1]
-
-
-def timeline(t):
-    projects = sorted(PROJECTS, key=lambda p: p["spans"][0][0])
-    first = min(s[0] for p in projects for s in p["spans"])
-    last = max(s[1] for p in projects for s in p["spans"])
-    origin = (int(first[:4]), 1)
-    months = (int(last[:4]) - origin[0] + 1) * 12
-    label_w, row_h, top = 190, 24, 30
-    mw = (W - label_w) / months
-    height = top + row_h * len(projects) + 30
-    parts = []
-    for m in range(0, months + 1, 3):
-        x = label_w + m * mw
-        year_start = m % 12 == 0
-        parts.append(f'<path d="M{x:.1f} {top - 6}V{height - 26}" stroke="{t["border"]}" stroke-width="{1.4 if year_start else 0.7}"/>')
-        if year_start and m < months:
-            parts.append(f'<text x="{x + 6:.1f}" y="14" font-size="13" font-weight="600" fill="{t["text"]}">{origin[0] + m // 12}</text>')
-    colours = {"ml": t["accent"], "software": t["soft"]}
-    for i, p in enumerate(projects):
-        y = top + i * row_h
-        parts.append(f'<text x="{label_w - 12}" y="{y + 15}" font-size="12.5" text-anchor="end" fill="{t["text"]}">{escape(p["name"])}</text>')
-        for start, end in p["spans"]:
-            a, b = month_index(start, origin), month_index(end, origin) + 1
-            parts.append(f'<rect x="{label_w + a * mw + 1.5:.1f}" y="{y + 5}" width="{(b - a) * mw - 3:.1f}" height="13" rx="6.5" fill="{colours[p["kind"]]}"/>')
-    ly = height - 8
-    parts.append(f'<rect x="{label_w}" y="{ly - 10}" width="22" height="11" rx="5.5" fill="{colours["ml"]}"/>'
-                 f'<text x="{label_w + 30}" y="{ly}" font-size="12" fill="{t["dim"]}">Data science and machine learning</text>'
-                 f'<rect x="{label_w + 250}" y="{ly - 10}" width="22" height="11" rx="5.5" fill="{colours["software"]}"/>'
-                 f'<text x="{label_w + 280}" y="{ly}" font-size="12" fill="{t["dim"]}">Software</text>')
-    return (f'<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{height}" viewBox="0 0 {W} {height}" '
-            f'font-family="{SANS}">\n{"".join(parts)}\n</svg>\n')
-
-
 # ------------------------------------------------------------------ buttons
 
 BUTTON_ICONS = {
@@ -182,10 +142,9 @@ def main():
         for p in PROJECTS:
             (assets / "flow" / f"{p['slug']}_{theme}.svg").write_text(flow(p["flow"], t), encoding="utf-8")
             (assets / "stack" / f"{p['slug']}_{theme}.svg").write_text(stack(p["stack"], t, theme), encoding="utf-8")
-        (assets / f"timeline_{theme}.svg").write_text(timeline(t), encoding="utf-8")
         for name, (label, icon) in BUTTONS.items():
             (assets / "buttons" / f"{name}_{theme}.svg").write_text(button(label, icon, t), encoding="utf-8")
-    print(f"{len(PROJECTS)} projects: flows, stacks, timeline and buttons written to assets/")
+    print(f"{len(PROJECTS)} projects: flows, stacks and buttons written to assets/")
 
 
 if __name__ == "__main__":

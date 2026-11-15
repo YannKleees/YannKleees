@@ -31,7 +31,7 @@ jobs:
       - name: Header from the photo
         if: github.event_name != 'schedule'
         run: python generator/make_header.py --photo "$(ls generator/photo.* | head -n 1)"
-      - name: Diagrams, tech stacks, timeline, stats and the README
+      - name: Diagrams, tech stacks, stats and the README
         env:
           GITHUB_TOKEN: ${{ github.token }}
         run: |

@@ -1,4 +1,4 @@
-"""Write README.md from generator/projects.json: the projects grouped by year, newest first.
+"""Write README.md from generator/projects.json: the projects grouped by what I learned from them.
 
     python generator/make_readme.py
 
@@ -75,24 +75,16 @@ def main():
         button("mailto:yannklees@gmail.com", "email", "Email yannklees@gmail.com"),
         "</p>",
         "",
-        "### Projects over time",
-        "",
-        picture("timeline", "Timeline of my projects from " + min(s[0] for p in DATA["projects"] for s in p["spans"])[:4]
-                + " to " + max(s[1] for p in DATA["projects"] for s in p["spans"])[:4]
-                + ". The folders below list them year by year with their dates."),
-        "",
-        "Open a folder to see what the project is built with, how it works and where the code is.",
+        "Projects grouped by what I learned from them. Open a folder to see what it is built with, how it works and where the code is.",
         "",
     ]
-    by_year = {}
-    for p in DATA["projects"]:
-        by_year.setdefault(p["spans"][0][0][:4], []).append(p)  # filed under the year it started
-    for year in sorted(by_year, reverse=True):
-        out += [f"### {year}", "", DATA["years"].get(year, ""), ""]
-        for p in sorted(by_year[year], key=lambda p: (p["spans"][0][1], p["spans"][0][0]), reverse=True):
-            out.append(folder(p))
+    for area in DATA["areas"]:
+        projects = [p for p in DATA["projects"] if p["area"] == area["id"]]
+        projects.sort(key=lambda p: (p["spans"][-1][1], p["spans"][0][0]), reverse=True)  # newest first
+        out += [f'### {area["title"]}', "", area["learned"], ""]
+        out += [folder(p) for p in projects]
     (ROOT / "README.md").write_text("\n".join(out).rstrip() + "\n", encoding="utf-8", newline="\n")
-    print(f"README.md written: {len(DATA['projects'])} projects in {len(by_year)} years")
+    print(f"README.md written: {len(DATA['projects'])} projects in {len(DATA['areas'])} areas")
 
 
 if __name__ == "__main__":
