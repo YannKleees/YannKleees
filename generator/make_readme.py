@@ -40,7 +40,7 @@ def folder(p):
         f'<summary><code>{escape(p["when"])}</code> &nbsp;<b>{escape(p["name"])}/</b> &nbsp;{escape(p["tagline"])}</summary>',
         "<br>",
         "",
-        f'<b>When</b> {escape(p["when"])} &nbsp;·&nbsp; <b>Context</b> {escape(p["context"])}',
+        escape(p["context"]),
         "",
         picture(f'stack/{p["slug"]}', f'Tech stack of {p["name"]}: {stack_names(p)}'),
         "",
@@ -75,7 +75,7 @@ def main():
         button("mailto:yannklees@gmail.com", "email", "Email yannklees@gmail.com"),
         "</p>",
         "",
-        "Projects grouped by what I learned from them. Open a folder to see what it is built with, how it works and where the code is.",
+        "Open a folder for the tech stack, how it works and the code.",
         "",
     ]
     for area in DATA["areas"]:
