@@ -12,10 +12,10 @@ Open a folder for the tech stack, how it works and the code.
 Object detection and image classification.
 
 <details>
-<summary><code>Nov 2026</code> &nbsp;<b>orthodontic-par/</b> &nbsp;PAR index suggestions from dental photos</summary>
+<summary><b>orthodontic-par/</b> &nbsp;PAR index suggestions from dental photos</summary>
 <br>
 
-Rebuild of my 2025 internship work on public data
+Rebuild of my 2025 internship work on public data, Nov 2026
 
 <picture><source media="(prefers-color-scheme: dark)" srcset="assets/stack/orthodontic-par_dark.svg"><img src="assets/stack/orthodontic-par_light.svg" width="100%" alt="Tech stack of orthodontic-par: python, YOLO11, pytorch, typescript, react, nodedotjs"></picture>
 
@@ -29,10 +29,10 @@ Suggests PAR index scores from intraoral photos for a clinician to review. The d
 </details>
 
 <details>
-<summary><code>Summer 2025</code> &nbsp;<b>yolo-rcnn-pipeline/</b> &nbsp;detector training for dental images</summary>
+<summary><b>yolo-rcnn-pipeline/</b> &nbsp;detector training for dental images</summary>
 <br>
 
-Research internship
+Research internship, Summer 2025
 
 <picture><source media="(prefers-color-scheme: dark)" srcset="assets/stack/yolo-rcnn-pipeline_dark.svg"><img src="assets/stack/yolo-rcnn-pipeline_light.svg" width="100%" alt="Tech stack of yolo-rcnn-pipeline: python, pytorch, YOLO, Faster R-CNN"></picture>
 
@@ -46,10 +46,10 @@ YOLO and Faster R-CNN training from my orthodontics internship. The starting poi
 </details>
 
 <details>
-<summary><code>Mar – Jun 2025</code> &nbsp;<b>team09/</b> &nbsp;brain tumour classification from MRI</summary>
+<summary><b>team09/</b> &nbsp;brain tumour classification from MRI</summary>
 <br>
 
-BSc group project, Maastricht
+BSc group project, Maastricht, Mar – Jun 2025
 
 <picture><source media="(prefers-color-scheme: dark)" srcset="assets/stack/team09_dark.svg"><img src="assets/stack/team09_light.svg" width="100%" alt="Tech stack of team09: python, pytorch, qt, jupyter"></picture>
 
@@ -67,10 +67,10 @@ Four-class brain tumour classifier with a desktop app: data cleaning, CNN traini
 Finding and removing personal data in text.
 
 <details>
-<summary><code>Oct – Nov 2026</code> &nbsp;<b>tagging/</b> &nbsp;personal data redaction in four languages</summary>
+<summary><b>tagging/</b> &nbsp;personal data redaction in four languages</summary>
 <br>
 
-Personal project
+Personal project, Oct – Nov 2026
 
 <picture><source media="(prefers-color-scheme: dark)" srcset="assets/stack/tagging_dark.svg"><img src="assets/stack/tagging_light.svg" width="100%" alt="Tech stack of tagging: rust, python, GLiNER, webassembly"></picture>
 
@@ -85,10 +85,10 @@ A Rust rule engine combined with a GLiNER model. Recall on hard Luxembourgish na
 </details>
 
 <details>
-<summary><code>Feb – Jun 2026</code> &nbsp;<b>pii-anonymisation-thesis/</b> &nbsp;BSc thesis on document anonymisation</summary>
+<summary><b>pii-anonymisation-thesis/</b> &nbsp;BSc thesis on document anonymisation</summary>
 <br>
 
-BSc thesis, Maastricht
+BSc thesis, Maastricht, Feb – Jun 2026
 
 <picture><source media="(prefers-color-scheme: dark)" srcset="assets/stack/pii-anonymisation-thesis_dark.svg"><img src="assets/stack/pii-anonymisation-thesis_light.svg" width="100%" alt="Tech stack of pii-anonymisation-thesis: python, jupyter, GLiNER, OCR"></picture>
 
@@ -106,10 +106,10 @@ Layout-aware anonymisation of student documents. Recall 0.998 on 500 synthetic d
 Ranking items for a user.
 
 <details>
-<summary><code>Sep 2025 – Jan 2026</code> &nbsp;<b>job-recommender/</b> &nbsp;two-tower job recommendations</summary>
+<summary><b>job-recommender/</b> &nbsp;two-tower job recommendations</summary>
 <br>
 
-BSc group project, Maastricht
+BSc group project, Maastricht, Sep 2025 – Jan 2026
 
 <picture><source media="(prefers-color-scheme: dark)" srcset="assets/stack/job-recommender_dark.svg"><img src="assets/stack/job-recommender_light.svg" width="100%" alt="Tech stack of job-recommender: python, Two-tower model"></picture>
 
@@ -121,10 +121,10 @@ Matches candidates with vacancies through a two-tower model. Group project; I bu
 </details>
 
 <details>
-<summary><code>Nov – Dec 2025</code> &nbsp;<b>recsys/</b> &nbsp;hotel recommendations on HotelRec</summary>
+<summary><b>recsys/</b> &nbsp;hotel recommendations on HotelRec</summary>
 <br>
 
-BSc group project, Maastricht
+BSc group project, Maastricht, Nov – Dec 2025
 
 <picture><source media="(prefers-color-scheme: dark)" srcset="assets/stack/recsys_dark.svg"><img src="assets/stack/recsys_light.svg" width="100%" alt="Tech stack of recsys: python, jupyter, TF-IDF, Matrix factorisation"></picture>
 
@@ -142,10 +142,10 @@ Group project on TripAdvisor hotel reviews. I built the content-based recommende
 Reproducing papers, fairness, search and simulation.
 
 <details>
-<summary><code>Nov 2026</code> &nbsp;<b>fairbatch/</b> &nbsp;fair training with FairBatch (ICLR 2021)</summary>
+<summary><b>fairbatch/</b> &nbsp;fair training with FairBatch (ICLR 2021)</summary>
 <br>
 
-MSc course work, Utrecht
+MSc course work, Utrecht, Nov 2026
 
 <picture><source media="(prefers-color-scheme: dark)" srcset="assets/stack/fairbatch_dark.svg"><img src="assets/stack/fairbatch_light.svg" width="100%" alt="Tech stack of fairbatch: python, pytorch, jupyter"></picture>
 
@@ -159,10 +159,10 @@ FairBatch on Adult, German and COMPAS over 10 seeds. The parity gap on Adult wen
 </details>
 
 <details>
-<summary><code>Oct – Nov 2026</code> &nbsp;<b>hyperreimpute/</b> &nbsp;reproduction of an ICML 2022 paper</summary>
+<summary><b>hyperreimpute/</b> &nbsp;reproduction of an ICML 2022 paper</summary>
 <br>
 
-MSc course work, Utrecht
+MSc course work, Utrecht, Oct – Nov 2026
 
 <picture><source media="(prefers-color-scheme: dark)" srcset="assets/stack/hyperreimpute_dark.svg"><img src="assets/stack/hyperreimpute_light.svg" width="100%" alt="Tech stack of hyperreimpute: python, jupyter, HyperImpute, CatBoost"></picture>
 
@@ -176,10 +176,10 @@ HyperImpute reproduced on three UCI datasets. A CatBoost baseline with fixed set
 </details>
 
 <details>
-<summary><code>Sep – Nov 2026</code> &nbsp;<b>r-projects/</b> &nbsp;machine learning in R</summary>
+<summary><b>r-projects/</b> &nbsp;machine learning in R</summary>
 <br>
 
-MSc course work, Utrecht (group)
+MSc course work, Utrecht (group), Sep – Nov 2026
 
 <picture><source media="(prefers-color-scheme: dark)" srcset="assets/stack/r-projects_dark.svg"><img src="assets/stack/r-projects_light.svg" width="100%" alt="Tech stack of r-projects: r, quarto, githubpages"></picture>
 
@@ -194,10 +194,10 @@ Two Quarto reports: predicting exam scores, and clustering 5,000 IMDB reviews. G
 </details>
 
 <details>
-<summary><code>Nov 2025</code> &nbsp;<b>matlab-simulation/</b> &nbsp;random numbers, ECG cleaning and a queue simulation in MATLAB</summary>
+<summary><b>matlab-simulation/</b> &nbsp;random numbers, ECG cleaning and a queue simulation in MATLAB</summary>
 <br>
 
-BSc individual assignment, Maastricht
+BSc individual assignment, Maastricht, Nov 2025
 
 <picture><source media="(prefers-color-scheme: dark)" srcset="assets/stack/matlab-simulation_dark.svg"><img src="assets/stack/matlab-simulation_light.svg" width="100%" alt="Tech stack of matlab-simulation: MATLAB, No toolboxes"></picture>
 
@@ -211,10 +211,10 @@ A random number generator with its test, ECG outlier cleaning and a simulation o
 </details>
 
 <details>
-<summary><code>Sep 2024 – Jan 2025</code> &nbsp;<b>tak/</b> &nbsp;board game AI with a hand-written neural network</summary>
+<summary><b>tak/</b> &nbsp;board game AI with a hand-written neural network</summary>
 <br>
 
-BSc group project, Maastricht
+BSc group project, Maastricht, Sep 2024 – Jan 2025
 
 <picture><source media="(prefers-color-scheme: dark)" srcset="assets/stack/tak_dark.svg"><img src="assets/stack/tak_light.svg" width="100%" alt="Tech stack of tak: openjdk, libGDX, Minimax, Neural network from scratch"></picture>
 
@@ -232,10 +232,10 @@ Tak in Java, playable against minimax with alpha-beta pruning or a neural networ
 SQL, an API and an interface on top.
 
 <details>
-<summary><code>Nov 2026</code> &nbsp;<b>shortlist/</b> &nbsp;Sift, a job search app that scores postings against my CV</summary>
+<summary><b>shortlist/</b> &nbsp;Sift, a job search app that scores postings against my CV</summary>
 <br>
 
-Personal project
+Personal project, Nov 2026
 
 <picture><source media="(prefers-color-scheme: dark)" srcset="assets/stack/shortlist_dark.svg"><img src="assets/stack/shortlist_light.svg" width="100%" alt="Tech stack of shortlist: python, fastapi, sqlite, javascript, docker, ollama"></picture>
 
@@ -251,10 +251,10 @@ Searches seven job sites, scores each posting against my CV and tracks my applic
 </details>
 
 <details>
-<summary><code>Oct 2024, web interface Nov 2026</code> &nbsp;<b>pizza-ordering-system/</b> &nbsp;pizza shop on MySQL, desktop and web</summary>
+<summary><b>pizza-ordering-system/</b> &nbsp;pizza shop on MySQL, desktop and web</summary>
 <br>
 
-BSc Databases course, Maastricht
+BSc Databases course, Maastricht, Oct 2024, web interface Nov 2026
 
 <picture><source media="(prefers-color-scheme: dark)" srcset="assets/stack/pizza-ordering-system_dark.svg"><img src="assets/stack/pizza-ordering-system_light.svg" width="100%" alt="Tech stack of pizza-ordering-system: python, mysql, Tkinter, fastapi, javascript, leaflet"></picture>
 
@@ -270,10 +270,10 @@ Customer and staff apps on a 16-table MySQL schema, built as desktop apps in 202
 </details>
 
 <details>
-<summary><code>Feb 2026</code> &nbsp;<b>fridgy/</b> &nbsp;scan a receipt, track the pantry, get recipes</summary>
+<summary><b>fridgy/</b> &nbsp;scan a receipt, track the pantry, get recipes</summary>
 <br>
 
-Weekend team project
+Weekend team project, Feb 2026
 
 <picture><source media="(prefers-color-scheme: dark)" srcset="assets/stack/fridgy_dark.svg"><img src="assets/stack/fridgy_light.svg" width="100%" alt="Tech stack of fridgy: react, typescript, vite, tailwindcss, supabase, googlegemini"></picture>
 
@@ -289,10 +289,10 @@ Photograph a grocery receipt, a vision model fills your pantry, and a chat sugge
 </details>
 
 <details>
-<summary><code>Feb – Mar 2025</code> &nbsp;<b>music-mystery/</b> &nbsp;adaptive music guessing game</summary>
+<summary><b>music-mystery/</b> &nbsp;adaptive music guessing game</summary>
 <br>
 
-BSc group project (HCI), Maastricht
+BSc group project (HCI), Maastricht, Feb – Mar 2025
 
 <picture><source media="(prefers-color-scheme: dark)" srcset="assets/stack/music-mystery_dark.svg"><img src="assets/stack/music-mystery_light.svg" width="100%" alt="Tech stack of music-mystery: python, flask, sqlite, javascript"></picture>
 
@@ -310,10 +310,10 @@ Built for an HCI user study. The personalised version keeps an Elo rating and ad
 Things I wanted to exist.
 
 <details>
-<summary><code>Nov 2026</code> &nbsp;<b>wichtel/</b> &nbsp;Secret Santa draw</summary>
+<summary><b>wichtel/</b> &nbsp;Secret Santa draw</summary>
 <br>
 
-Personal project
+Personal project, Nov 2026
 
 <picture><source media="(prefers-color-scheme: dark)" srcset="assets/stack/wichtel_dark.svg"><img src="assets/stack/wichtel_light.svg" width="100%" alt="Tech stack of wichtel: javascript, html5, css, githubpages"></picture>
 
@@ -328,10 +328,10 @@ Everyone gets a private link that shows only their own match.
 </details>
 
 <details>
-<summary><code>Oct 2026</code> &nbsp;<b>record/</b> &nbsp;records what your PC plays</summary>
+<summary><b>record/</b> &nbsp;records what your PC plays</summary>
 <br>
 
-Personal project
+Personal project, Oct 2026
 
 <picture><source media="(prefers-color-scheme: dark)" srcset="assets/stack/record_dark.svg"><img src="assets/stack/record_light.svg" width="100%" alt="Tech stack of record: python, pywebview, Windows audio (WASAPI)"></picture>
 
@@ -345,10 +345,10 @@ Windows app that saves each track your PC plays as a tagged MP3 or FLAC file.
 </details>
 
 <details>
-<summary><code>Oct 2026</code> &nbsp;<b>datapluck/</b> &nbsp;copy tables and charts as data</summary>
+<summary><b>datapluck/</b> &nbsp;copy tables and charts as data</summary>
 <br>
 
-Personal project, in progress
+Personal project, in progress, Oct 2026
 
 <picture><source media="(prefers-color-scheme: dark)" srcset="assets/stack/datapluck_dark.svg"><img src="assets/stack/datapluck_light.svg" width="100%" alt="Tech stack of datapluck: typescript, Browser extension"></picture>
 

@@ -37,10 +37,10 @@ def stack_names(project):
 def folder(p):
     lines = [
         "<details>",
-        f'<summary><code>{escape(p["when"])}</code> &nbsp;<b>{escape(p["name"])}/</b> &nbsp;{escape(p["tagline"])}</summary>',
+        f'<summary><b>{escape(p["name"])}/</b> &nbsp;{escape(p["tagline"])}</summary>',
         "<br>",
         "",
-        escape(p["context"]),
+        escape(f'{p["context"]}, {p["when"]}'),
         "",
         picture(f'stack/{p["slug"]}', f'Tech stack of {p["name"]}: {stack_names(p)}'),
         "",
